@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+
+const projects = [
+  {
+    title: 'Ramadan im Ländle',
+    category: 'Interreligiöser Dialog',
+    status: 'Laufend',
+    image: '/images/Ramadan-im-Laendle-Logo-scaled.jpg',
+    desc: 'Jährliche landesweite Initiative in Kooperation mit dem LBE BW e.V. Bürgerinnen und Bürger laden Nachbarn, Freunde und Interessierte zu gemeinsamen Fastenbrechen-Abenden ein.',
+    points: ['Über 50 dezentrale Begegnungsabende pro Jahr', 'Förderung von Nachbarschaft und Vertrauen', 'Brücke zwischen Mehrheitsgesellschaft und muslimischer Gemeinschaft'],
+  },
+  {
+    title: 'Lernkreis Bibel–Koran',
+    category: 'Wissenschaft & Theologie',
+    status: 'Laufend',
+    image: '/images/lernkreisbibelkoran.jpg',
+    desc: 'Ein akademisch fundierter Dialogkreis mit Prof. Dr. Karl-Josef Kuschel und Gastreferenten zur vergleichenden Textarbeit zwischen biblischen und koranischen Überlieferungen.',
+    points: ['Regelmäßige Semester-Seminare im Hospitalhof Stuttgart', 'Themen: Schöpfung, Propheten, Auferstehung, Ethik', 'Publikum aus Kirche, Moschee und Universität'],
+  },
+  {
+    title: 'Circle of Friends – Gemeinsam gegen Einsamkeit',
+    category: 'Gesellschaftlicher Zusammenhalt',
+    status: 'Aktiv',
+    image: '/images/Werbeflyer-Gemeinsam-gegen-Einsam.webp',
+    desc: 'Niedrigschwellige Begegnungsformate zur Linderung von Einsamkeit und sozialer Isolation – mit gemeinsamen Spaziergängen, Diskussionskreisen und generationenübergreifenden Aktivitäten.',
+    points: ['Offen für alle Alters- und Bevölkerungsgruppen', 'Stärkung seelischer Gesundheit und Resilienz', 'Kostenlose und barrierearme Treffen vor Ort'],
+  },
+  {
+    title: 'Projekt Werte-Botschafter',
+    category: 'Wertebildung & Jugend',
+    status: 'Aktiv',
+    image: '/images/Projekt-Werte-Botschafter.png',
+    desc: 'Schulungsprogramm für junge Multiplikatoren und Ehrenamtliche zur Vermittlung universeller demokratischer Werte, Menschenwürde und pluralistischer Haltung im Alltag.',
+    points: ['Interaktive Workshops und Zertifikatskurse', 'Peer-to-Peer Wertevermittlung an Schulen und Vereinen', 'Stärkung von Zivilcourage und Empathie'],
+  },
+  {
+    title: 'INK & FLOW – Schreibwerkstatt für junge Stimmen',
+    category: 'Jugendarbeit & Kultur',
+    status: 'Aktiv',
+    image: '/images/Werbeflyer-Weiblich.Migrantisch.Kreativ-zweiseitig-1.png',
+    desc: 'Kreatives Schreiben, Slam Poetry und Empowerment für Jugendliche und junge Erwachsene, um der eigenen Lebensrealität eine starke Stimme zu geben.',
+    points: ['Professionelle Anleitung durch Autorinnen und Dozenten', 'Abschlusslesung und Publikation von Texten', 'Förderung sprachlicher und sozialer Kompetenzen'],
+  },
+  {
+    title: 'Vielfalt Lesen – Interkultureller Buchclub',
+    category: 'Frauen & Kultur',
+    status: 'Aktiv',
+    image: '/images/Vielfalt-Lesen.Info_.png',
+    desc: 'Regelmäßige Buchbesprechungen zu zeitgenössischer Literatur, Postkolonialismus, Feminismus und gesellschaftlicher Transformation.',
+    points: ['Monatliche Treffen in Stuttgart und online', 'Auswahl inspirierender nationaler & internationaler Werke', 'Raum für tiefgehende persönliche Reflexion'],
+  },
+];
+---
+
+<BaseLayout title="Aktuelle Projekte" description="Aktuelle Projekte und Initiativen der Gesellschaft für Dialog Baden-Württemberg e.V.">
+  <PageHeader
+    title="Aktuelle Projekte"
+    subtitle="Konkrete Initiativen, die Begegnungen schaffen, Vorurteile abbauen und gesellschaftlichen Zusammenhalt stärken."
+  >
+    <a
+      slot="action"
+      href="/projekte/archiv"
+      class="text-sm font-semibold text-brand-navy bg-white hover:bg-slate-50 border border-[#D5CFC5] px-5 py-2.5 rounded-md shadow-xs transition inline-flex items-center gap-1.5"
+    >
+      Zum Projektarchiv →
+    </a>
+  </PageHeader>
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-8 py-16 space-y-10">
+    <div class="grid grid-cols-1 gap-8">
+      {projects.map((p) => (
+        <article class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md transition flex flex-col md:flex-row">
+          {p.image && (
+            <div class="md:w-72 lg:w-80 flex-shrink-0 bg-slate-50 flex items-center justify-center p-4 border-b md:border-b-0 md:border-r border-gray-100">
+              <img
+                src={p.image}
+                alt={p.title}
+                class="w-full h-48 md:h-full max-h-64 object-contain rounded-lg"
+                loading="lazy"
+              />
+            </div>
+          )}
+          <div class="p-8 flex flex-col flex-grow">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <span class="text-xs font-semibold text-brand-steel bg-brand-light px-3 py-1 rounded-full uppercase tracking-wider">
+                {p.category}
+              </span>
+              <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                {p.status}
+              </span>
+            </div>
+            <h2 class="font-heading font-bold text-xl sm:text-2xl text-brand-navy mb-3">
+              {p.title}
+            </h2>
+            <p class="text-xs sm:text-sm text-body-text leading-relaxed mb-6">
+              {p.desc}
+            </p>
+            <div class="bg-slate-50 p-4 rounded-lg border border-gray-100 mt-auto">
+              <h3 class="text-xs font-bold text-brand-navy uppercase tracking-wider mb-2">Kernaspekte des Projekts:</h3>
+              <ul class="space-y-1 text-xs text-body-text">
+                {p.points.map((pt) => (
+                  <li class="flex items-start gap-2">
+                    <svg class="w-3.5 h-3.5 text-brand-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <span>{pt}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

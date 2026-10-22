@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+---
+
+<BaseLayout title="Gesellschaft & Politik" description="Gesellschaft und Politik – Gesellschaft für Dialog Baden-Württemberg e.V.">
+  <PageHeader
+    title="Gesellschaft & Politik"
+    subtitle="Demokratie stärken, Bürgerbeteiligung leben und extremistischen Tendenzen entschlossen entgegentreten."
+    backLink={{ href: '/themen', label: 'Zurück zur Themenübersicht' }}
+  />
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-8 py-16 space-y-8 text-body-text text-sm sm:text-base leading-relaxed">
+    <div class="rounded-xl overflow-hidden shadow-sm h-64 sm:h-80 md:h-96 w-full bg-slate-50 flex items-center justify-center">
+      <img
+        src="/images/Raum-fuer-Demokratie3.png"
+        alt="Gesellschaft & Politik – Raum für Demokratie"
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+    </div>
+
+    <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-xs space-y-4">
+      <h2 class="text-2xl font-bold font-heading text-brand-navy">Verantwortung in der Zivilgesellschaft</h2>
+      <p>
+        Eine wehrhafte und lebendige Demokratie braucht engagierte Bürgerinnen und Bürger, die sich aktiv in die gesellschaftliche Debatte einbringen. Wir bieten neutrale Plattformen für Diskussionen zu aktuellen politischen Fragen, Landtagswahlen und gesellschaftlichen Herausforderungen.
+      </p>
+      <p>
+        Dazu gehören Diskussionsabende mit Landtagsabgeordneten, Fachtagungen zu Rechtsextremismus, Islamismus und Antisemitismus sowie Initiativen gegen Vereinsamung und soziale Spaltung in Baden-Württemberg.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

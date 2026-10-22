@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+---
+
+<BaseLayout title="Über uns" description="Unsere Ziele, Vision und unser Engagement – Gesellschaft für Dialog Baden-Württemberg e.V.">
+  <PageHeader
+    title="Über uns & unsere Vision"
+    subtitle="Den Menschen in den Mittelpunkt stellen und Begegnungen schaffen – seit 2006 im gesamten Land Baden-Württemberg."
+  />
+
+  <!-- Main Content -->
+  <div class="max-w-5xl mx-auto px-4 sm:px-8 py-12 space-y-12">
+    <!-- Hero Photo -->
+    <div class="rounded-lg overflow-hidden border border-[#E5DFD5] h-64 sm:h-80 md:h-96 w-full shadow-xs">
+      <img
+        src="/images/Luftaufnahme_vom_Birkenkopf_in_Stuttgart-scaled.jpg"
+        alt="Blick auf Stuttgart – Heimat der Gesellschaft für Dialog Baden-Württemberg"
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+    </div>
+
+    <!-- Intro Section -->
+    <section class="bg-white p-8 sm:p-10 rounded-lg border border-[#E5DFD5] shadow-xs space-y-4 text-sm sm:text-base leading-relaxed text-slate-700">
+      <h2 class="text-2xl font-bold font-heading text-brand-navy">Unsere Ziele, Vision und unser Engagement</h2>
+      <p>
+        Unser Ziel ist es, den gesellschaftlichen Dialog in Baden-Württemberg aktiv zu stärken. Wir fördern offene, respektvolle Gespräche und schaffen Räume, in denen unterschiedliche Perspektiven gehört und wertgeschätzt werden.
+      </p>
+      <p>
+        Unsere Mission ist es, Verständigung zu ermöglichen, Beteiligung zu fördern und demokratische Werte erlebbar zu machen. Unser Motto lautet: <strong>„Den Menschen in den Mittelpunkt stellen und Begegnungen schaffen.“</strong>
+      </p>
+      <p>
+        Danach richten wir unser Handeln aus – mit langfristigem Engagement, dialogorientierten Formaten und starken Netzwerken setzen wir uns für Zusammenhalt, Vielfalt und eine lebendige Zivilgesellschaft ein.
+      </p>
+    </section>
+
+    <!-- History -->
+    <section class="bg-white p-8 sm:p-10 rounded-lg border border-[#E5DFD5] shadow-xs space-y-4 text-sm sm:text-base leading-relaxed text-slate-700">
+      <h2 class="text-2xl font-bold font-heading text-brand-navy">Geschichte der Gründung</h2>
+      <p>
+        Die Gesellschaft für Dialog Baden-Württemberg wurde <strong>2006</strong> gegründet, um den interkulturellen und interreligiösen Austausch in Baden-Württemberg zu fördern. Initiiert von engagierten Akademiker:innen und Kulturschaffenden – mit Bezug zur Hizmet-Bewegung – entstand der Verein aus dem Wunsch, ein friedliches und respektvolles Miteinander zu stärken.
+      </p>
+      <p>
+        Die heutigen Standorte gingen unter anderem aus den Vorgängervereinen <strong>Begegnungen e.V. (Stuttgart)</strong>, <strong>SüdDialog e.V. (Ulm)</strong> und dem <strong>Akademischen Dialogkreis e.V. (Mannheim)</strong> hervor.
+      </p>
+      <p>
+        Ehrenamtliches Engagement bildet bis heute das Herz der Arbeit. Die Mitglieder bringen vielfältige Erfahrungen ein, gestalten professionelle Formate und schaffen Dialogräume, die Menschen unterschiedlicher Herkunft, Kultur oder Religion verbinden. Persönlicher Austausch steht bei uns im Mittelpunkt.
+      </p>
+    </section>
+
+    <!-- Subpage Navigation Cards -->
+    <section class="pt-2">
+      <h3 class="text-xl font-bold font-heading text-brand-navy mb-6">Weitere Informationen über die GfD BW</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <a href="/ueber-uns/vorstand" class="p-6 bg-white rounded-lg border border-[#E5DFD5] hover:border-brand-steel transition group">
+          <h4 class="font-heading font-bold text-base text-brand-navy group-hover:text-brand-steel mb-2">Der Vorstand</h4>
+          <p class="text-xs text-slate-600">Lernen Sie die Vorstandsmitglieder und die Geschäftsführung unseres Vereins kennen.</p>
+        </a>
+
+        <a href="/ueber-uns/ziele" class="p-6 bg-white rounded-lg border border-[#E5DFD5] hover:border-brand-steel transition group">
+          <h4 class="font-heading font-bold text-base text-brand-navy group-hover:text-brand-steel mb-2">Unsere Ziele</h4>
+          <p class="text-xs text-slate-600">Ausführliche Erläuterung unserer Satzungsziele, Prinzipien und Leitlinien.</p>
+        </a>
+
+        <a href="/ueber-uns/hizmet-bewegung" class="p-6 bg-white rounded-lg border border-[#E5DFD5] hover:border-brand-steel transition group">
+          <h4 class="font-heading font-bold text-base text-brand-navy group-hover:text-brand-steel mb-2">Hizmet-Bewegung</h4>
+          <p class="text-xs text-slate-600">Hintergründe zu den weltanschaulichen und philosophischen Wurzeln unserer Dialogarbeit.</p>
+        </a>
+
+        <a href="/ueber-uns/partner" class="p-6 bg-white rounded-lg border border-[#E5DFD5] hover:border-brand-steel transition group">
+          <h4 class="font-heading font-bold text-base text-brand-navy group-hover:text-brand-steel mb-2">Partnerorganisationen</h4>
+          <p class="text-xs text-slate-600">Unsere Kooperationspartner aus Kirchen, Staat, Wissenschaft und Zivilgesellschaft.</p>
+        </a>
+
+        <a href="/ueber-uns/satzung" class="p-6 bg-white rounded-lg border border-[#E5DFD5] hover:border-brand-steel transition group">
+          <h4 class="font-heading font-bold text-base text-brand-navy group-hover:text-brand-steel mb-2">Vereinssatzung</h4>
+          <p class="text-xs text-slate-600">Die rechtliche Grundlage unseres gemeinnützigen Vereins als Download und Einblick.</p>
+        </a>
+
+        <a href="/kontakt" class="p-6 bg-white rounded-lg border border-[#E5DFD5] hover:border-brand-steel transition group">
+          <h4 class="font-heading font-bold text-base text-brand-navy group-hover:text-brand-steel mb-2">Kontakt & Standorte</h4>
+          <p class="text-xs text-slate-600">Ansprechpartner, Geschäftsstellen in Stuttgart und Mannheim sowie Öffnungszeiten.</p>
+        </a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

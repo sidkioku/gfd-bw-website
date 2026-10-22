@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+---
+
+<BaseLayout title="Aktiv werden & Spenden" description="Gemeinsam für Dialog und Vielfalt – Werden Sie ehrenamtlich aktiv oder unterstützen Sie uns mit einer Spende.">
+  <PageHeader
+    title="Aktiv werden & Fördern"
+    subtitle="Unsere Projekte zeigen: Dialog verbindet Menschen, baut Brücken und schafft Vertrauen. Ihre Unterstützung macht den Unterschied."
+  />
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-8 py-16 space-y-16">
+    <!-- Ways to Participate -->
+    <section class="space-y-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl font-bold font-heading text-brand-navy mb-3">So können Sie bei der GfD BW aktiv werden</h2>
+        <p class="text-sm text-body-text">
+          Es gibt viele Wege, Teil unserer Arbeit zu werden und sich für ein offenes Baden-Württemberg zu engagieren.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="w-12 h-12 bg-brand-light text-brand-blue rounded-lg flex items-center justify-center font-bold text-lg">
+              1
+            </div>
+            <h3 class="font-heading font-bold text-lg text-brand-navy">Ehrenamtliches Engagement</h3>
+            <p class="text-xs text-body-text leading-relaxed">
+              Unterstützen Sie unsere Projekte vor Ort, begleiten Sie Veranstaltungen in Stuttgart oder Mannheim oder bringen Sie Ihre fachlichen Fähigkeiten in unsere Arbeitskreise ein.
+            </p>
+          </div>
+          <div class="pt-6">
+            <a href="/kontakt?subject=Ehrenamt" class="text-xs font-semibold text-brand-blue hover:underline">Mitmachen anfragen →</a>
+          </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="w-12 h-12 bg-brand-light text-brand-blue rounded-lg flex items-center justify-center font-bold text-lg">
+              2
+            </div>
+            <h3 class="font-heading font-bold text-lg text-brand-navy">Vereinsmitgliedschaft</h3>
+            <p class="text-xs text-body-text leading-relaxed">
+              Werden Sie ordentliches Mitglied oder Fördermitglied der Gesellschaft für Dialog Baden-Württemberg e.V. und stärken Sie unsere Stimme für gesellschaftlichen Zusammenhalt.
+            </p>
+          </div>
+          <div class="pt-6">
+            <a href="/mitglied-werden" class="text-xs font-semibold text-brand-blue hover:underline">Mitgliedschaft beantragen →</a>
+          </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="w-12 h-12 bg-brand-light text-brand-blue rounded-lg flex items-center justify-center font-bold text-lg">
+              3
+            </div>
+            <h3 class="font-heading font-bold text-lg text-brand-navy">Eigene Projektideen</h3>
+            <p class="text-xs text-body-text leading-relaxed">
+              Haben Sie eine Idee für ein Begegnungsformat, einen Workshop oder eine Kooperation? Wir bieten ein starkes Netzwerk und begleiten Sie bei der praktischen Umsetzung.
+            </p>
+          </div>
+          <div class="pt-6">
+            <a href="/kontakt?subject=Projektidee" class="text-xs font-semibold text-brand-blue hover:underline">Idee vorstellen →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section id="spenden" class="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 sm:p-12 space-y-8 scroll-mt-24">
+      <div class="max-w-3xl">
+        <span class="text-xs font-bold text-brand-blue uppercase tracking-wider block mb-1">Gemeinnützigkeit anerkannt</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold font-heading text-brand-navy mb-3">Unterstützen Sie uns mit einer Spende</h2>
+        <p class="text-xs sm:text-sm text-body-text leading-relaxed">
+          Als eingetragener gemeinnütziger Verein finanzieren wir unsere Projekte, Bildungsangebote und Begegnungsabende größtenteils durch Mitgliedsbeiträge und Spenden. Ihre Spende ist steuerlich abzugsfähig.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        <!-- Online Spende (Stripe / PayPal) -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-gray-200 space-y-4">
+          <h3 class="font-heading font-bold text-base text-brand-navy">Online spenden (Kreditkarte / PayPal / Klarna)</h3>
+          <p class="text-xs text-body-text">
+            Sicher, unkompliziert und direkt online über unsere verschlüsselte Spendenseite unterstützen.
+          </p>
+          <div class="pt-2">
+            <!-- Replace with real Stripe Payment Link or PayPal donate button -->
+            <a
+              href="https://donate.stripe.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 w-full bg-brand-blue hover:bg-brand-navy text-white font-heading font-bold px-6 py-3.5 rounded-lg shadow-sm transition text-sm text-center"
+            >
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              Jetzt online spenden
+            </a>
+          </div>
+          <p class="text-[11px] text-gray-500">
+            * Eine Spendenbescheinigung (Zuwendungsbestätigung) zur Vorlage beim Finanzamt wird auf Wunsch ab 50 € automatisch oder per formloser E-Mail ausgestellt.
+          </p>
+        </div>
+
+        <!-- Banküberweisung -->
+        <div class="bg-slate-50 p-6 rounded-xl border border-gray-200 space-y-4">
+          <h3 class="font-heading font-bold text-base text-brand-navy">Banküberweisung / Dauerauftrag</h3>
+          <p class="text-xs text-body-text">
+            Sie können Ihre Zuwendung auch direkt auf unser Vereinskonto überweisen:
+          </p>
+          <div class="space-y-1.5 text-xs text-body-text bg-white p-4 rounded-lg border border-gray-200 font-mono">
+            <div><strong class="font-sans font-semibold">Empfänger:</strong> Gesellschaft für Dialog BW e.V.</div>
+            <div><strong class="font-sans font-semibold">Konto:</strong> Spendenkonto GfD BW</div>
+            <div><strong class="font-sans font-semibold">Verwendungszweck:</strong> Spende Dialogarbeit / Projektname</div>
+            <div class="text-[11px] text-gray-500 font-sans pt-1">
+              (Genaue IBAN bitte per E-Mail an info@gfd-bw.org anfragen oder dem Mitgliedsantrag entnehmen)
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

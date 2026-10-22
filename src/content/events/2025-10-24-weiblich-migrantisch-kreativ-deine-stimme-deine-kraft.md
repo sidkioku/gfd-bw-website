@@ -1,0 +1,11 @@
+---
+title: "Weiblich. Migrantisch. Kreativ. – Deine Stimme, deine Kraft!"
+date: 2025-10-24
+location: ""
+description: "Weiblich. Migrantisch. Kreativ. – Deine Stimme, deine Kraft! Du bist eine junge Frau zwischen 1 8 und 28 Jahren , hast eine Migrationsgeschichte und Lust, dich kreativ auszudrücken ? Dann ist Weiblich"
+categories: []
+past: true
+image: "/images/Werbeflyer-Weiblich.Migrantisch.Kreativ-zweiseitig-1.webp"
+---
+
+Weiblich. Migrantisch. Kreativ. – Deine Stimme, deine Kraft! Du bist eine junge Frau zwischen 1 8 und 28 Jahren , hast eine Migrationsgeschichte und Lust, dich kreativ auszudrücken ? Dann ist Weiblich. Migrantisch. Kreativ. – Von der Stimme zur Sichtbarkeit genau richtig für dich! In unseren Workshops geht es darum, deine Gedanken, Gefühle, Erfahrungen und Geschichten sichtbar zu machen – Schritt für Schritt und jenseits von Klischees. Egal ob Geschichten, Gedichte, Poetry Slam, Rap oder Theater – bei unserem Schreibworkshop bekommst du das Werkzeug, um dich kreativ auszutoben und später die Bühne, um deine Stimme zu erheben. In der Filmwerkstatt werden deine Ideen zu bewegten Bildern. Dabei steht Empowerment im Mittelpunkt: Du stärkst deine Stimme, entfaltest deine Kreativität und machst deine Erfahrungen hör- und sichtbar. Workshop-Folge: 24. Oktober & 25. Oktober – Schreibwerkstatt mit Autorin Jasmin Riter November – Filmwerkstatt mit Filmemacherin Zehra Karahan Januar – Abschlussveranstaltung: Zeige, was du geschaffen hast und lass Dich feiern! Tag und Zeiten Freitag, 24.10.25 I 16:00 – 19:00 Uhr Samstag, 25.10.25 I 10:30 – 16:00 Uhr (13:30 Uhr Mittagspause mit Verpflegung) Samstag, 8.11.25 I 10:30 – 16:00 Uhr (13:30 Uhr Mittagspause mit Verpflegung) Samstag, 17.01.26 I 18:00 – 20:30 Uhr Ort : Stuttgart (Die genaue Adresse wird nach der Anmeldung mitgeteilt) Anmeldung : kurt@gfd-bw.org

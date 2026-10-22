@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+---
+
+<BaseLayout title="Hizmet-Bewegung" description="Hintergründe und weltanschauliche Wurzeln der Gesellschaft für Dialog Baden-Württemberg e.V.">
+  <PageHeader
+    title="Hizmet-Bewegung"
+    subtitle="Inspiration für ehrenamtliches Engagement, universale Menschenwürde und gesellschaftlichen Dialog."
+    backLink={{ href: '/ueber-uns', label: 'Zurück zu Über uns' }}
+  />
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-8 py-16 space-y-8 text-body-text text-sm sm:text-base leading-relaxed">
+    <div class="rounded-xl overflow-hidden shadow-sm h-64 sm:h-80 md:h-96 w-full bg-slate-50 flex items-center justify-center">
+      <img
+        src="/images/A-Life-of-Hizmet_1024x1024.jpg"
+        alt="Hizmet-Bewegung – Inspiration für gesellschaftlichen Dialog"
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+    </div>
+
+    <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-xs space-y-4">
+      <h2 class="text-2xl font-bold font-heading text-brand-navy">Wurzeln und Werte</h2>
+      <p>
+        Die Gesellschaft für Dialog Baden-Württemberg e.V. wurde von engagierten Bürgerinnen und Bürgern mit Bezug zur weltweiten Hizmet-Bewegung gegründet. „Hizmet“ ist das türkische Wort für <em>Dienst</em> – im Sinne eines uneigennützigen Dienstes an der Menschheit und der Gemeinschaft.
+      </p>
+      <p>
+        Inspiriert von universalen Werten wie Nächstenliebe, Bildung, Toleranz, sozialer Verantwortung und dem Dialog zwischen Religionen und Weltanschauungen, setzen sich die Mitglieder unseres Vereins ehrenamtlich für das Gemeinwohl in Baden-Württemberg ein.
+      </p>
+      <p>
+        Unsere Arbeit richtet sich an alle Menschen – unabhängig von Religion, ethnischer Herkunft, Nationalität oder politischer Überzeugung. Im Mittelpunkt steht das Verbindende, nicht das Trennende.
+      </p>
+    </div>
+
+    <div class="bg-brand-light/50 border border-brand-steel/20 rounded-xl p-8 space-y-3">
+      <h3 class="text-lg font-bold font-heading text-brand-navy">Kernprinzipien unseres Handelns</h3>
+      <ul class="list-disc list-inside space-y-2 text-xs sm:text-sm text-body-text">
+        <li><strong>Bildung & Aufklärung:</strong> Vorurteile entstehen oft aus Unwissenheit. Wir fördern Wissen und tiefes Kennenlernen.</li>
+        <li><strong>Gegenseitiger Respekt:</strong> Echter Dialog verlangt, den anderen so anzunehmen und zu achten, wie er ist.</li>
+        <li><strong>Demokratisches Bekenntnis:</strong> Festes Fundament in der freiheitlich-demokratischen Grundordnung und den Menschenrechten.</li>
+        <li><strong>Gemeinwohlorientierung:</strong> Aktiver Beitrag zur Lösung drängender gesellschaftlicher Fragen wie Einsamkeit, Rassismus und Diskriminierung.</li>
+      </ul>
+    </div>
+  </div>
+</BaseLayout>

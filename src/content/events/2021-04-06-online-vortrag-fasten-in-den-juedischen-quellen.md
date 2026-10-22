@@ -1,0 +1,11 @@
+---
+title: "Online-Vortrag: Fasten in den jüdischen Quellen"
+date: 2021-04-06
+location: ""
+description: "[Bild: Jeder jüdische Feiertag beginnt am Vorabend mit einem Kiddusch – einem Segenspruch für Wein und Brot (Challa). Zum Fastenende macht man das ebenfalls.] \"Mein Herz ist geschlagen, ... dass ich s"
+categories: []
+past: true
+image: "/images/Challa-Wein-min-3.jpg"
+---
+
+[Bild: Jeder jüdische Feiertag beginnt am Vorabend mit einem Kiddusch – einem Segenspruch für Wein und Brot (Challa). Zum Fastenende macht man das ebenfalls.] "Mein Herz ist geschlagen, ... dass ich sogar vergesse, mein Brot zu essen" (Psalm 102, ) Am 06.04.2021 hielt der Senior-Rabbiner und Lehrbeauftragte Dr. Gabor Lengyel, einen Vortrag über die Grundlagen zum Fastens in den jüdischen Quellen. Er erklärt, dass die Fastentage als nationale Trauertage gelten. So ist Kummer häufig der Grund, warum jemand fastet. Dieser Kummer steht dabei für einen so tiefen Schmerz, der das Essen und Trinken nicht mehr möglich macht. Auch kann das Fasten ein Akt der Reue, der Furcht vor einer tatsächlich drohenden Gefahr oder der seelischen Beklemmung sein. Gefastet wird - so Dr. Lengyel - je ein ganzer Tag (ca. 24 oder 26 Stunden) in den Monaten Tamus, Aw, Tischri und Tawet - sowie am Versöhnungstag (Jom Kippur) und am Purim-Fest. Dr. Lengyel zitiert aus Jesaja 58,3ff und erklärt, wie man richtig fastet. Man soll dabei das Brot mit den Hungrigen teilen, den Obdachlosen ein Heim geben, die Nackten bekleiden, gerecht sein, die Arbeiter (nicht bedrücken) und nicht streiten. Erst dann habe man wirklich gefastet. Wir bedanken uns für den spannenden Vortrag! Die Vortragsreihe “Fasten – mehr als nichts essen?” umfasst vier Vorträge: Teil I: Die medizinisch-körperlichen Dimensionen des Fastens 1) “Heilfasten” und “Fasten für Gesunde” nach Dr. Buchinger mit Andrea Ciro Chiappa , Deutsche Fastenakademie e. V. am 15.03.2021, 19:00 Uhr (vorbei!) Teil II: Religiöses Fasten 2) Fasten in der christlichen Tradition Referentin: Monika Renninger , Hospitalhof Stuttgart, 30.03.2021, 19:00 Uhr (vorbei!) 3) Fasten in den jüdischen Quellen Referent: Senior-Rabbiner Dr. Gabor Lengyel , Liberale Jüdische Gemeinde Hannover 06.04.2021, 19:00 Uhr (vorbei!) 4) Fasten im Islam Referentin: Ürüncü , Cor-Ratio e.V. 08.04.2021, 19:00 Uhr (vorbei!)

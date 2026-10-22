@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+
+const board = [
+  {
+    name: 'Serpil Tirhis-Efe',
+    role: 'Vorstandsvorsitzende',
+    email: 'tirhisefe@gfd-bw.org',
+    image: '/images/WhatsApp-Image-2026-02-09-at-1.54.33-PM.jpeg',
+    description: 'Leitet den Verein und vertritt die GfD BW e.V. nach außen in Kooperationen, politischen Gremien und interreligiösen Foren.',
+  },
+  {
+    name: 'Sidki Okumusoglu',
+    role: 'Stellvertretender Vorsitzender',
+    email: 'okumusoglu@gfd-bw.org',
+    image: '/images/IMG_0949.jpg',
+    description: 'Koordiniert vereinsinterne Initiativen, die Zusammenarbeit der Regionalstandorte sowie strategische Partnerschaften.',
+  },
+  {
+    name: 'Yasemin Kurt',
+    role: 'Geschäftsführerin und Projektleitung',
+    email: 'kurt@gfd-bw.org',
+    image: '/images/WhatsApp-Image-2026-02-09-at-1.55.01-PM.jpeg',
+    description: 'Verantwortlich für das operative Projektmanagement, Veranstaltungsreihen, Öffentlichkeitsarbeit und die Betreuung von Ehrenamtlichen.',
+  },
+];
+---
+
+<BaseLayout title="Der Vorstand" description="Vorstand und Geschäftsführung der Gesellschaft für Dialog Baden-Württemberg e.V.">
+  <PageHeader
+    title="Unser Vorstand"
+    subtitle="Verantwortungsvolle Führung und ehrenamtlicher Einsatz für den gesellschaftlichen Dialog."
+    backLink={{ href: '/ueber-uns', label: 'Zurück zu Über uns' }}
+  />
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {board.map((member) => (
+        <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-8 flex flex-col text-center hover:shadow-md transition">
+          <div class="w-28 h-28 mx-auto mb-6 rounded-full overflow-hidden border-2 border-brand-blue/20 shadow-md bg-slate-50">
+            {member.image ? (
+              <img
+                src={member.image}
+                alt={member.name}
+                class="w-full h-full object-cover object-top"
+                width="112"
+                height="112"
+                loading="lazy"
+              />
+            ) : (
+              <div class="w-full h-full flex items-center justify-center font-heading font-bold text-2xl text-brand-navy bg-brand-light">
+                {member.name.split(' ').map((n) => n[0]).join('')}
+              </div>
+            )}
+          </div>
+          <h3 class="font-heading font-bold text-lg text-brand-navy">{member.name}</h3>
+          <p class="text-xs font-semibold text-brand-blue uppercase tracking-wider mt-1 mb-4">{member.role}</p>
+          <p class="text-xs text-body-text leading-relaxed flex-grow mb-6">{member.description}</p>
+          <div class="pt-4 border-t border-gray-100 mt-auto">
+            <a
+              href={`mailto:${member.email}`}
+              class="inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-brand-blue hover:text-brand-navy transition"
+            >
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              {member.email}
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

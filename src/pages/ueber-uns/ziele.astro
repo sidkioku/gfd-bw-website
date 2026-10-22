@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+---
+
+<BaseLayout title="Unsere Ziele" description="Ziele und Leitbild der Gesellschaft für Dialog Baden-Württemberg e.V.">
+  <PageHeader
+    title="Unsere Ziele"
+    subtitle="Was uns antreibt und wie wir unsere Gesellschaft in Baden-Württemberg nachhaltig stärken wollen."
+    backLink={{ href: '/ueber-uns', label: 'Zurück zu Über uns' }}
+  />
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-8 py-16 space-y-8 text-body-text text-sm sm:text-base leading-relaxed">
+    <div class="rounded-xl overflow-hidden shadow-sm h-64 sm:h-80 md:h-96 w-full">
+      <img
+        src="/images/Marktplatz-Istanbul.jpeg"
+        alt="Vielfalt und Zusammenhalt – Unsere Ziele"
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+    </div>
+
+    <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-xs space-y-4">
+      <h2 class="text-2xl font-bold font-heading text-brand-navy">Pluralismus und Zusammenhalt in Vielfalt</h2>
+      <p>
+        Unsere Gesellschaft ist plural und divers – und das ist gut so! Der Verein Gesellschaft für Dialog Baden-Württemberg e.V. setzt sich dafür ein, dass Vielfalt nicht als Herausforderung oder Spaltung verstanden wird, sondern als Bereicherung und Quelle gegenseitigen Lernens.
+      </p>
+      <p>
+        Wir leben vom ehrenamtlichen Engagement unserer Mitglieder und Förderer. Jeder Einzelne trägt mit seinen persönlichen und fachlichen Erfahrungen zu einem lebendigen Programm bei, welches auf allen gesellschaftlichen Ebenen Brücken schlägt.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-xs space-y-3">
+        <h3 class="text-lg font-bold font-heading text-brand-navy">1. Dialogräume auf Augenhöhe</h3>
+        <p class="text-xs sm:text-sm">
+          Wir schaffen geschützte und offene Räume, in denen Menschen ohne Vorurteile miteinander sprechen, zuhören und gemeinsame Schnittmengen entdecken können.
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-xs space-y-3">
+        <h3 class="text-lg font-bold font-heading text-brand-navy">2. Partizipation von Minderheiten</h3>
+        <p class="text-xs sm:text-sm">
+          Die besonderen Situationen von Minderheiten innerhalb der Mehrheitsgesellschaft werden thematisiert – ebenso wie gemeinsame Sorgen, Erwartungen und Entwicklungschancen.
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-xs space-y-3">
+        <h3 class="text-lg font-bold font-heading text-brand-navy">3. Demokratie & Wertevermittlung</h3>
+        <p class="text-xs sm:text-sm">
+          Wir stärken demokratische Grundwerte wie Menschenwürde, Religionsfreiheit, Toleranz und Gleichberechtigung aller Geschlechter durch Bildungs- und Jugendprojekte.
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-xs space-y-3">
+        <h3 class="text-lg font-bold font-heading text-brand-navy">4. Starke zivilgesellschaftliche Bündnisse</h3>
+        <p class="text-xs sm:text-sm">
+          Wir kooperieren mit staatlichen, kommunalen, kirchlichen und wissenschaftlichen Institutionen und sind Mitglied im Bund Deutscher Dialoginstitutionen (BDDI) und im Landesverband für Bürgerschaftliches Engagement (LBE-BW e.V.).
+        </p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

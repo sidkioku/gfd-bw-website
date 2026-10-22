@@ -1,0 +1,453 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EventCard from '../components/EventCard.astro';
+import PostCard from '../components/PostCard.astro';
+import DonateButton from '../components/DonateButton.astro';
+import { getCollection } from 'astro:content';
+
+const allEvents = await getCollection('events');
+const upcomingEvents = allEvents
+  .filter((e) => !e.data.past)
+  .sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
+
+const pastEvents = allEvents
+  .filter((e) => e.data.past)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+// Homepage shows upcoming events first, filled up to 3 with latest past events
+const featuredEvents = [...upcomingEvents, ...pastEvents].slice(0, 3);
+
+const nextEvent = upcomingEvents.length > 0 ? upcomingEvents[0] : null;
+
+const allPosts = await getCollection('posts');
+const recentPosts = allPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime()).slice(0, 3);
+
+const coreTopics = [
+  {
+    title: 'Interreligiöser & Interkultureller Dialog',
+    href: '/themen/interreligioeser-dialog',
+    image: '/images/025A02521-scaled.jpg',
+    desc: 'Bibel-Koran-Lernkreise mit Prof. Dr. Kuschel, Trialogreisen, Fastenbrechen und theologische Gesprächsforen auf Augenhöhe.',
+  },
+  {
+    title: 'Gesellschaft, Politik & Demokratie',
+    href: '/themen/gesellschaft-und-politik',
+    image: '/images/Raum-fuer-Demokratie3.png',
+    desc: 'Stärkung des demokratischen Gemeinwesens, Diskussionsabende zur Extremismusprävention und Bürgerdialoge im Land.',
+  },
+  {
+    title: 'Frauen, Gender & Gerechtigkeit',
+    href: '/themen/gender-und-geschlechtergerechtigkeit',
+    image: '/images/Frauenmahl1-scaled.jpg',
+    desc: 'Das Interreligiöse Frauenmahl, Women\'s Literature Clubs, Empowerment und geschlechtergerechte Teilhabe in Kultur und Glaube.',
+  },
+  {
+    title: 'Jugendarbeit & Wertebildung',
+    href: '/themen/jugend',
+    image: '/images/IMG_5995-scaled.jpg',
+    desc: 'Kreativwerkstätten wie INK & FLOW, Werte-Botschafter-Schulungen und Bildungsräume für die nächste Generation.',
+  },
+  {
+    title: 'Kunst, Kultur & Spiritualität',
+    href: '/themen/kunst-kultur',
+    image: '/images/14490340600_cd3eeb1bbe_o-scaled.jpg',
+    desc: 'Interkulturelle Konzerte wie „Symphony of the Earth“, Gedenkabende zu Mewlana Rumi (Şeb-i Arûs) und Lesungen.',
+  },
+];
+---
+
+<BaseLayout
+  title="Gesellschaft für Dialog Baden-Württemberg e.V. | Dialog, Begegnung & Vielfalt"
+  description="Gesellschaft für Dialog Baden-Württemberg e.V. – Seit 2006 fördern wir den interkulturellen und interreligiösen Dialog, zivilgesellschaftliche Teilhabe und demokratische Werte in Stuttgart, Mannheim und ganz Baden-Württemberg."
+>
+  <!-- Editorial Hero Section -->
+  <section class="bg-[#FAF8F5] border-b border-[#E8E2D8] py-14 sm:py-20 px-4 sm:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <!-- Left: Editorial Content -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="space-y-2">
+            <span class="text-xs font-semibold tracking-wider text-brand-steel uppercase block">
+              Gesellschaft für Dialog Baden-Württemberg e.V. · Gegründet 2006
+            </span>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[2.85rem] font-bold font-heading text-brand-navy leading-[1.18] tracking-tight">
+              Gemeinsam für Verständigung, Respekt und gelebte Vielfalt.
+            </h1>
+          </div>
+
+          <p class="text-base sm:text-lg text-[#3D4752] leading-relaxed max-w-2xl">
+            Seit zwei Jahrzehnten schaffen wir in Baden-Württemberg verlässliche Räume der Begegnung. Wir bringen Menschen unterschiedlicher Religionen, Kulturen und Lebenswelten auf Augenhöhe ins Gespräch — für eine solidarische, demokratische Gesellschaft.
+          </p>
+
+          <div class="pt-2 flex flex-wrap items-center gap-4">
+            <a
+              href="/veranstaltungen"
+              class="bg-brand-navy hover:bg-brand-blue text-white text-sm sm:text-base font-heading font-semibold px-6 py-3.5 rounded-md shadow-xs transition"
+            >
+              Aktuelle Veranstaltungen
+            </a>
+            <a
+              href="/ueber-uns"
+              class="bg-white hover:bg-slate-50 text-brand-navy text-sm sm:text-base font-heading font-semibold px-6 py-3.5 rounded-md border border-[#D5CFC5] shadow-2xs transition"
+            >
+              Über unsere Arbeit
+            </a>
+          </div>
+
+          <!-- Trust & Scope Indicators -->
+          <div class="pt-6 border-t border-[#E8E2D8] grid grid-cols-3 gap-4 text-xs text-[#526071]">
+            <div>
+              <span class="font-bold text-brand-navy block text-sm">3 Standorte</span>
+              <span>Stuttgart · Mannheim · Ulm</span>
+            </div>
+            <div>
+              <span class="font-bold text-brand-navy block text-sm">70+ Formate</span>
+              <span>Lernkreise & Tagungen</span>
+            </div>
+            <div>
+              <span class="font-bold text-brand-navy block text-sm">Gemeinnützig</span>
+              <span>Ehrenamtlich getragen</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Editorial Visual Feature -->
+        <div class="lg:col-span-5">
+          <div class="bg-white p-3 rounded-xl border border-[#E5DFD4] shadow-sm">
+            <div class="aspect-[4/3] rounded-lg overflow-hidden bg-slate-100 relative">
+              <img
+                src="/images/025A02521-scaled.jpg"
+                alt="Interreligiöse Begegnung und Dialogrunde der GfD BW e.V."
+                class="w-full h-full object-cover"
+                loading="eager"
+              />
+            </div>
+            <div class="pt-3 px-1 text-xs text-[#6B7280] flex items-center justify-between">
+              <span class="font-medium text-brand-navy">Interreligiöser Runder Tisch Baden-Württemberg</span>
+              <span>GfD BW e.V.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Notice: Next Upcoming Event -->
+  {nextEvent && (
+    <div class="bg-[#F0F5FA] border-b border-[#D8E6F1] py-3.5 px-4 sm:px-8 text-xs sm:text-sm">
+      <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+        <div class="flex items-center gap-2">
+          <span class="px-2 py-0.5 rounded bg-brand-navy text-white text-[10px] font-semibold uppercase tracking-wider">
+            Nächster Termin
+          </span>
+          <span class="font-semibold text-brand-navy">
+            {nextEvent.data.date.toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' })}:
+          </span>
+          <span class="text-[#3D4752] truncate max-w-[320px] sm:max-w-md">
+            {nextEvent.data.title}
+          </span>
+        </div>
+        <a
+          href={`/veranstaltungen/${nextEvent.slug}`}
+          class="font-semibold text-brand-blue hover:text-brand-navy transition inline-flex items-center gap-1 flex-shrink-0"
+        >
+          Details ansehen →
+        </a>
+      </div>
+    </div>
+  )}
+
+  <!-- Editorial Mission / Leitmotiv Section -->
+  <section class="py-16 sm:py-20 px-4 sm:px-8 bg-white border-b border-[#E8E2D8]">
+    <div class="max-w-4xl mx-auto text-center space-y-6">
+      <span class="text-xs font-semibold tracking-wider text-brand-steel uppercase block">
+        Unser Leitmotiv seit 2006
+      </span>
+      <blockquote class="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-brand-navy leading-snug">
+        „Den Menschen in den Mittelpunkt stellen und Begegnungen schaffen.“
+      </blockquote>
+      <div class="w-12 h-0.5 bg-brand-blue mx-auto"></div>
+      <p class="text-sm sm:text-base text-[#4A5568] leading-relaxed max-w-2xl mx-auto">
+        Vorurteile und gesellschaftliche Spannungen lassen sich nicht durch Belehrung abbauen, sondern durch persönliche Begegnung. Wo Menschen miteinander essen, diskutieren, lernen und zuhören, wächst gegenseitiges Vertrauen.
+      </p>
+    </div>
+  </section>
+
+  <!-- Thematic Dossiers / Focus Areas (With Real Photography) -->
+  <section class="py-16 sm:py-20 px-4 sm:px-8 max-w-7xl mx-auto">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-12">
+      <div>
+        <span class="text-xs font-semibold text-brand-steel uppercase tracking-wider block mb-1">
+          Schwerpunkte unserer Arbeit
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-bold font-heading text-brand-navy">
+          Themenfelder des Dialogs
+        </h2>
+      </div>
+      <a
+        href="/themen"
+        class="text-xs sm:text-sm font-semibold text-brand-blue hover:text-brand-navy transition inline-flex items-center gap-1"
+      >
+        Alle Themenübersichten ansehen →
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {coreTopics.map((topic, index) => (
+        <a
+          href={topic.href}
+          class={`bg-white rounded-xl border border-[#E5DFD4] overflow-hidden hover:border-brand-navy/40 hover:shadow-md transition flex flex-col group ${
+            index === 0 ? 'md:col-span-2 lg:col-span-2' : ''
+          }`}
+        >
+          <div class={`overflow-hidden bg-slate-100 ${index === 0 ? 'h-64 sm:h-72' : 'h-48'}`}>
+            <img
+              src={topic.image}
+              alt={topic.title}
+              class="w-full h-full object-cover group-hover:scale-103 transition-transform duration-300"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-6 sm:p-8 flex flex-col flex-grow justify-between">
+            <div class="space-y-2">
+              <h3 class="font-heading font-bold text-lg sm:text-xl text-brand-navy group-hover:text-brand-blue transition">
+                {topic.title}
+              </h3>
+              <p class="text-xs sm:text-sm text-[#4A5568] leading-relaxed">
+                {topic.desc}
+              </p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-gray-100 flex items-center text-xs font-semibold text-brand-blue group-hover:text-brand-navy transition">
+              Themenbereich erkunden →
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Events Section -->
+  <section class="py-16 sm:py-20 px-4 sm:px-8 bg-[#FAF8F5] border-y border-[#E8E2D8]">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-12">
+        <div>
+          <span class="text-xs font-semibold text-brand-steel uppercase tracking-wider block mb-1">
+            Terminkalender
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-bold font-heading text-brand-navy">
+            Veranstaltungen & Termine
+          </h2>
+        </div>
+        <a
+          href="/veranstaltungen"
+          class="text-xs sm:text-sm font-semibold text-brand-blue hover:text-brand-navy transition inline-flex items-center gap-1"
+        >
+          Zum Veranstaltungskalender ({allEvents.length} Termine) →
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {featuredEvents.map((evt) => (
+          <EventCard
+            title={evt.data.title}
+            date={evt.data.date}
+            slug={evt.slug}
+            location={evt.data.location}
+            format={evt.data.format}
+            description={evt.data.description}
+            categories={evt.data.categories}
+            past={evt.data.past}
+            image={evt.data.image}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects Preview -->
+  <section class="py-16 sm:py-20 px-4 sm:px-8 max-w-7xl mx-auto">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-12">
+      <div>
+        <span class="text-xs font-semibold text-brand-steel uppercase tracking-wider block mb-1">
+          Initiativen vor Ort
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-bold font-heading text-brand-navy">
+          Aktuelle Projekte & Bündnisse
+        </h2>
+      </div>
+      <a
+        href="/projekte"
+        class="text-xs sm:text-sm font-semibold text-brand-blue hover:text-brand-navy transition inline-flex items-center gap-1"
+      >
+        Alle Projekte ansehen →
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Project 1 -->
+      <div class="bg-white rounded-xl overflow-hidden border border-[#E5DFD4] shadow-2xs hover:shadow-md transition flex flex-col">
+        <div class="h-48 overflow-hidden bg-slate-100">
+          <img
+            src="/images/Ramadan-im-Laendle-Logo-scaled.jpg"
+            alt="Ramadan im Ländle"
+            class="w-full h-full object-cover hover:scale-103 transition-transform duration-300"
+            loading="lazy"
+          />
+        </div>
+        <div class="p-6 flex flex-col flex-grow">
+          <span class="text-[11px] font-semibold uppercase tracking-wider text-brand-steel mb-2 block">
+            Interreligiöser Dialog
+          </span>
+          <h3 class="font-heading font-bold text-base text-brand-navy mb-2">Ramadan im Ländle</h3>
+          <p class="text-xs text-[#4A5568] leading-relaxed mb-4 flex-grow">
+            Dezentrale Fastenbrechen-Abende in ganz Baden-Württemberg in Kooperation mit dem Landesnetzwerk Bürgerschaftliches Engagement (LBE BW e.V.).
+          </p>
+          <a href="/projekte" class="text-xs font-semibold text-brand-blue hover:text-brand-navy mt-auto">Projekt ansehen →</a>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="bg-white rounded-xl overflow-hidden border border-[#E5DFD4] shadow-2xs hover:shadow-md transition flex flex-col">
+        <div class="h-48 overflow-hidden bg-slate-100">
+          <img
+            src="/images/lernkreisbibelkoran.jpg"
+            alt="Lernkreis Bibel–Koran"
+            class="w-full h-full object-cover hover:scale-103 transition-transform duration-300"
+            loading="lazy"
+          />
+        </div>
+        <div class="p-6 flex flex-col flex-grow">
+          <span class="text-[11px] font-semibold uppercase tracking-wider text-brand-steel mb-2 block">
+            Wissenschaft & Theologie
+          </span>
+          <h3 class="font-heading font-bold text-base text-brand-navy mb-2">Lernkreis Bibel–Koran</h3>
+          <p class="text-xs text-[#4A5568] leading-relaxed mb-4 flex-grow">
+            Theologische Textarbeit zu gemeinsamen prophetischen und ethischen Quellen unter Leitung von Prof. Dr. Karl-Josef Kuschel im Hospitalhof Stuttgart.
+          </p>
+          <a href="/projekte" class="text-xs font-semibold text-brand-blue hover:text-brand-navy mt-auto">Projekt ansehen →</a>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="bg-white rounded-xl overflow-hidden border border-[#E5DFD4] shadow-2xs hover:shadow-md transition flex flex-col">
+        <div class="h-48 overflow-hidden bg-slate-100">
+          <img
+            src="/images/Werbeflyer-Gemeinsam-gegen-Einsam.webp"
+            alt="Circle of Friends – Gemeinsam gegen Einsamkeit"
+            class="w-full h-full object-cover object-top hover:scale-103 transition-transform duration-300"
+            loading="lazy"
+          />
+        </div>
+        <div class="p-6 flex flex-col flex-grow">
+          <span class="text-[11px] font-semibold uppercase tracking-wider text-brand-steel mb-2 block">
+            Gesellschaftlicher Zusammenhalt
+          </span>
+          <h3 class="font-heading font-bold text-base text-brand-navy mb-2">Gemeinsam gegen Einsamkeit</h3>
+          <p class="text-xs text-[#4A5568] leading-relaxed mb-4 flex-grow">
+            Offene Begegnungsräume und generationenübergreifende Initiativen im Rahmen der Bundesallianz gegen Einsamkeit (BMFSFJ).
+          </p>
+          <a href="/projekte" class="text-xs font-semibold text-brand-blue hover:text-brand-navy mt-auto">Projekt ansehen →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- News & Articles -->
+  <section class="py-16 sm:py-20 px-4 sm:px-8 bg-[#FAF8F5] border-t border-[#E8E2D8]">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-12">
+        <div>
+          <span class="text-xs font-semibold text-brand-steel uppercase tracking-wider block mb-1">
+            Öffentlichkeitsarbeit & Berichte
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-bold font-heading text-brand-navy">
+            Aktuelle Berichte aus der Vereinsarbeit
+          </h2>
+        </div>
+        <a
+          href="/aktuelles"
+          class="text-xs sm:text-sm font-semibold text-brand-blue hover:text-brand-navy transition inline-flex items-center gap-1"
+        >
+          Alle Berichte lesen →
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {recentPosts.map((post) => (
+          <PostCard
+            title={post.data.title}
+            date={post.data.date}
+            slug={post.slug}
+            categories={post.data.categories}
+            description={post.data.description}
+            image={post.data.image}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Partner Logos Bar -->
+  <section class="py-14 bg-white border-t border-[#E8E2D8] px-4 sm:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-8">
+        <span class="text-xs font-semibold text-brand-steel uppercase tracking-wider block">
+          Netzwerk & Institutionen
+        </span>
+        <h3 class="text-lg font-heading font-bold text-brand-navy mt-1">
+          Kooperationspartner & Mitgliedschaften
+        </h3>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 items-center justify-items-center opacity-85 hover:opacity-100 transition-opacity">
+        <a href="/ueber-uns/partner" title="BDDI" class="hover:scale-105 transition-transform">
+          <img src="/images/bdd_rgb.png" alt="BDDI" class="h-10 sm:h-12 w-auto max-w-[120px] object-contain" loading="lazy" />
+        </a>
+        <a href="/ueber-uns/partner" title="LBE BW" class="hover:scale-105 transition-transform">
+          <img src="/images/LBE-scaled.jpg" alt="LBE BW" class="h-8 sm:h-10 w-auto max-w-[130px] object-contain" loading="lazy" />
+        </a>
+        <a href="/ueber-uns/partner" title="Hospitalhof Stuttgart" class="hover:scale-105 transition-transform">
+          <img src="/images/logo_hospitalhof_rgb.png" alt="Hospitalhof" class="h-10 sm:h-12 w-auto max-w-[120px] object-contain" loading="lazy" />
+        </a>
+        <a href="/ueber-uns/partner" title="Haus Abraham" class="hover:scale-105 transition-transform">
+          <img src="/images/2017_HausAbraham_LOGO-gelbHintergrund-709-248-3001.jpg" alt="Haus Abraham" class="h-8 sm:h-10 w-auto max-w-[120px] object-contain" loading="lazy" />
+        </a>
+        <a href="/ueber-uns/partner" title="ACK" class="hover:scale-105 transition-transform">
+          <img src="/images/ACK.png" alt="ACK Baden-Württemberg" class="h-8 sm:h-10 w-auto max-w-[110px] object-contain" loading="lazy" />
+        </a>
+        <a href="/ueber-uns/partner" title="Allianz gegen Einsamkeit" class="hover:scale-105 transition-transform">
+          <img src="/images/BMBFSFJ_AllianzGegenEinsamkeit_Dachmarke_Logo_V2_RGB.png" alt="Allianz gegen Einsamkeit" class="h-8 sm:h-10 w-auto max-w-[130px] object-contain" loading="lazy" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community & Involvement Section -->
+  <section class="py-16 sm:py-20 px-4 sm:px-8 bg-[#FAF8F5] border-t border-[#E8E2D8]">
+    <div class="max-w-4xl mx-auto bg-white rounded-2xl border border-[#E5DFD4] p-8 sm:p-12 shadow-sm text-center space-y-6">
+      <span class="text-xs font-semibold tracking-wider text-brand-steel uppercase block">
+        Zivilgesellschaftliches Engagement
+      </span>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-brand-navy">
+        Möchten Sie den Dialog in Baden-Württemberg mitgestalten?
+      </h2>
+      <p class="text-sm sm:text-base text-[#4A5568] max-w-2xl mx-auto leading-relaxed">
+        Unsere Arbeit lebt von Menschen, die sich ehrenamtlich einbringen, neue Begegnungsformate initiieren oder unsere gemeinnützigen Projekte finanziell fördern.
+      </p>
+      <div class="pt-3 flex flex-wrap justify-center gap-4">
+        <DonateButton label="Spenden & Fördern" href="/aktiv-werden#spenden" size="lg" />
+        <a
+          href="/mitglied-werden"
+          class="inline-flex items-center justify-center font-heading font-semibold px-6 py-3.5 text-sm sm:text-base rounded-md border border-[#D5CFC5] bg-white text-brand-navy hover:bg-slate-50 transition"
+        >
+          Mitglied werden
+        </a>
+        <a
+          href="/kontakt"
+          class="inline-flex items-center justify-center font-heading font-semibold px-6 py-3.5 text-sm sm:text-base rounded-md text-brand-steel hover:text-brand-navy transition"
+        >
+          Kontakt aufnehmen →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

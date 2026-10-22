@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+
+const pastProjects = [
+  {
+    title: 'Deutscher Dialogpreis 2023 & 2025',
+    year: '2023 / 2025',
+    image: '/images/Deutscher_Dialogpreis_2023.jpg',
+    desc: 'Bundesweite Auszeichnung für herausragende Persönlichkeiten und Initiativen, die sich um den interreligiösen Dialog, Demokratieförderung und Zusammenhalt verdient gemacht haben.',
+  },
+  {
+    title: 'Trialogreise nach Israel & Palästina',
+    year: '2023',
+    image: '/images/PHOTO-2026-06-10-11-31-53.jpg',
+    desc: 'Eine interreligiöse Studien- und Begegnungsreise mit Teilnehmenden aus Judentum, Christentum und Islam zu historischen Stätten und zivilgesellschaftlichen Dialogpartnern vor Ort.',
+  },
+  {
+    title: 'Trialogreise nach Spanien (Andalusien)',
+    year: '2026',
+    image: '/images/Andalusien.png',
+    desc: 'Begegnungen auf den Spuren der Convivencia – des historischen Zusammenlebens der drei monotheistischen Religionen in Córdoba, Sevilla und Granada.',
+  },
+  {
+    title: 'Interreligiöses Frauenmahl (Reihe 1 bis 4)',
+    year: '2021 – 2024',
+    image: '/images/Frauenmahl1-scaled.jpg',
+    desc: 'Vierteilige Reihe mit festlichen Abendessen, Tischreden von Theologinnen und intensivem spirituellem Gedankenaustausch.',
+  },
+  {
+    title: 'Abrahamitisches Symposium Tübingen',
+    year: '2020 – 2022',
+    image: '/images/Abraham.jpg',
+    desc: 'Mehrteiliges wissenschaftliches Symposium in Kooperation mit der Stiftung Weltethos und universitären Instituten.',
+  },
+];
+---
+
+<BaseLayout title="Projektarchiv" description="Abgeschlossene Projekte und historische Meilensteine der Gesellschaft für Dialog Baden-Württemberg e.V.">
+  <PageHeader
+    title="Projektarchiv"
+    subtitle="Rückblick auf erfolgreiche Initiativen, Symposien und Begegnungsreihen vergangener Jahre."
+    backLink={{ href: '/projekte', label: 'Zu den aktuellen Projekten' }}
+  />
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-8 py-16 space-y-6">
+    {pastProjects.map((p) => (
+      <div class="bg-white p-6 sm:p-8 rounded-xl border border-gray-100 shadow-xs flex flex-col md:flex-row gap-6 items-center">
+        {p.image && (
+          <div class="w-full md:w-56 h-36 flex-shrink-0 bg-slate-50 rounded-lg overflow-hidden flex items-center justify-center">
+            <img
+              src={p.image}
+              alt={p.title}
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        )}
+        <div class="space-y-2 flex-grow">
+          <div class="flex items-center justify-between text-xs text-brand-steel font-semibold">
+            <span>{p.year}</span>
+            <span class="bg-gray-100 text-gray-600 px-2.5 py-0.5 rounded-full">Erfolgreich abgeschlossen</span>
+          </div>
+          <h2 class="font-heading font-bold text-lg sm:text-xl text-brand-navy">{p.title}</h2>
+          <p class="text-xs sm:text-sm text-body-text leading-relaxed">{p.desc}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</BaseLayout>

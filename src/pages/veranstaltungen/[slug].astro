@@ -1,0 +1,293 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+
+export async function getStaticPaths() {
+  const events = await getCollection('events');
+  return events.map((event) => ({
+    params: { slug: event.slug },
+    props: { event },
+  }));
+}
+
+interface Props {
+  event: CollectionEntry<'events'>;
+}
+
+const { event } = Astro.props;
+const { Content } = await event.render();
+
+const dateFormatted = event.data.date.toLocaleDateString('de-DE', {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+const isOnline = event.data.format === 'online' || event.data.location?.toLowerCase().includes('online') || event.data.location?.toLowerCase().includes('zoom');
+const format = event.data.format || (isOnline ? 'online' : 'praesenz');
+
+const siteUrl = 'https://gfd-bw.org';
+const eventUrl = `${siteUrl}/veranstaltungen/${event.slug}`;
+const imageUrl = event.data.image ? `${siteUrl}${event.data.image.startsWith('/') ? event.data.image : '/' + event.data.image}` : undefined;
+
+const locationQuery = event.data.address || event.data.location || '';
+const googleMapsUrl = locationQuery
+  ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(locationQuery)}`
+  : null;
+const appleMapsUrl = locationQuery
+  ? `https://maps.apple.com/?q=${encodeURIComponent(locationQuery)}`
+  : null;
+
+const eventJsonLd = {
+  '@type': 'Event',
+  '@id': `${eventUrl}#event`,
+  name: event.data.title,
+  description: event.data.description || event.data.title,
+  startDate: event.data.date.toISOString(),
+  endDate: event.data.endDate ? event.data.endDate.toISOString() : undefined,
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode:
+    format === 'online'
+      ? 'https://schema.org/OnlineEventAttendanceMode'
+      : format === 'hybrid'
+        ? 'https://schema.org/MixedEventAttendanceMode'
+        : 'https://schema.org/OfflineEventAttendanceMode',
+  location: format === 'online'
+    ? {
+        '@type': 'VirtualLocation',
+        url: event.data.zoomUrl || eventUrl,
+      }
+    : {
+        '@type': 'Place',
+        name: event.data.location || 'Gesellschaft für Dialog Baden-Württemberg e.V.',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: event.data.address,
+          addressLocality: event.data.location?.includes('Mannheim') ? 'Mannheim' : 'Stuttgart',
+          addressRegion: 'Baden-Württemberg',
+          addressCountry: 'DE',
+        },
+      },
+  image: imageUrl ? [imageUrl] : undefined,
+  organizer: {
+    '@id': `${siteUrl}/#organization`,
+  },
+};
+
+const breadcrumbJsonLd = {
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Startseite',
+      item: siteUrl,
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Veranstaltungen',
+      item: `${siteUrl}/veranstaltungen`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: event.data.title,
+      item: eventUrl,
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={event.data.title}
+  description={event.data.description || `${event.data.title} – Veranstaltung der Gesellschaft für Dialog Baden-Württemberg e.V. am ${dateFormatted}.`}
+  image={event.data.image}
+  jsonLd={[eventJsonLd, breadcrumbJsonLd]}
+>
+  <PageHeader
+    title={event.data.title}
+    subtitle={`${dateFormatted}${event.data.location ? ' • ' + event.data.location : ''}${event.data.categories.length > 0 ? ' • ' + event.data.categories.join(', ') : ''}`}
+    backLink={{ href: '/veranstaltungen', label: 'Zurück zu den Veranstaltungen' }}
+  />
+
+  <article class="max-w-4xl mx-auto px-4 sm:px-8 py-12 sm:py-16 space-y-8">
+    <!-- Format & Date Quick Banner -->
+    <div class="flex flex-wrap items-center justify-between gap-3 p-4 bg-[#FAF8F5] rounded-lg border border-[#E8E2D8] text-xs sm:text-sm">
+      <div class="flex items-center gap-2">
+        <span class="text-slate-500 font-medium">Format:</span>
+        {format === 'online' ? (
+          <span class="inline-flex items-center gap-1.5 font-semibold text-sky-900 bg-sky-100/70 border border-sky-300 px-3 py-1 rounded-full">
+            <svg class="w-3.5 h-3.5 text-sky-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            Virtuelle Veranstaltung (Online)
+          </span>
+        ) : format === 'hybrid' ? (
+          <span class="inline-flex items-center gap-1.5 font-semibold text-amber-950 bg-amber-100/70 border border-amber-300 px-3 py-1 rounded-full">
+            <svg class="w-3.5 h-3.5 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+            Hybride Veranstaltung (Vor Ort & Online)
+          </span>
+        ) : (
+          <span class="inline-flex items-center gap-1.5 font-semibold text-slate-800 bg-[#EFECE6] border border-[#DDD6C9] px-3 py-1 rounded-full">
+            <svg class="w-3.5 h-3.5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+            Präsenzveranstaltung (Vor Ort)
+          </span>
+        )}
+      </div>
+
+      <div class="text-slate-600 flex items-center gap-2">
+        <svg class="w-4 h-4 text-brand-steel" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        <span>{dateFormatted}</span>
+      </div>
+    </div>
+
+    {event.data.image && (
+      <div class="rounded-lg overflow-hidden border border-[#E5DFD5] max-h-[460px] w-full bg-[#FAF8F5] flex items-center justify-center">
+        <img
+          src={event.data.image}
+          alt={event.data.title}
+          class="w-full h-full object-contain max-h-[460px]"
+          loading="eager"
+        />
+      </div>
+    )}
+
+    <!-- Event Body Content -->
+    <div class="bg-white p-8 sm:p-12 rounded-lg border border-[#E5DFD5] shadow-xs prose prose-slate max-w-none prose-headings:font-heading prose-headings:text-brand-navy prose-a:text-brand-steel prose-a:underline hover:prose-a:text-brand-navy">
+      <Content />
+    </div>
+
+    <!-- Attendance & Location Section (Hybrid / Online / Präsenz) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+      <!-- 1. Online Access Box (Zoom) -->
+      {(format === 'online' || format === 'hybrid') && (
+        <div class="bg-white p-6 sm:p-8 rounded-lg border border-sky-200/80 shadow-xs space-y-4 md:col-span-1">
+          <div class="flex items-center gap-2.5 border-b border-sky-100 pb-3">
+            <div class="w-8 h-8 rounded-md bg-sky-100 flex items-center justify-center text-sky-800">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            </div>
+            <div>
+              <span class="text-[11px] font-semibold text-sky-800 uppercase tracking-wider block">Online-Teilnahme</span>
+              <h3 class="font-heading font-bold text-base text-brand-navy">Virtueller Raum (Zoom)</h3>
+            </div>
+          </div>
+
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Nehmen Sie bequem per Videoübertragung an dieser Veranstaltung teil und bringen Sie sich in den Austausch ein.
+          </p>
+
+          {event.data.zoomUrl ? (
+            <div class="space-y-3 pt-2">
+              <a
+                href={event.data.zoomUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-2 w-full bg-sky-700 hover:bg-sky-800 text-white font-heading font-semibold text-xs sm:text-sm py-2.5 px-4 rounded-md shadow-xs transition"
+              >
+                <span>Zoom-Meeting beitreten</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+
+              {(event.data.zoomMeetingId || event.data.zoomPasscode) && (
+                <div class="p-3 bg-sky-50 rounded border border-sky-200/60 text-xs text-sky-950 space-y-1">
+                  {event.data.zoomMeetingId && (
+                    <div class="flex justify-between">
+                      <span class="text-slate-600">Meeting-ID:</span>
+                      <code class="font-mono font-semibold">{event.data.zoomMeetingId}</code>
+                    </div>
+                  )}
+                  {event.data.zoomPasscode && (
+                    <div class="flex justify-between">
+                      <span class="text-slate-600">Kenncode:</span>
+                      <code class="font-mono font-semibold">{event.data.zoomPasscode}</code>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          ) : (
+            <div class="p-3.5 bg-sky-50/70 rounded border border-sky-100 text-xs text-slate-700 space-y-2">
+              <p>
+                Der Zoom-Zugangslink wird rechtzeitig freigeschaltet bzw. nach kurzer Voranmeldung per E-Mail zugestellt.
+              </p>
+              <a
+                href={`mailto:info@gfd-bw.org?subject=Zugangslink%20Veranstaltung:%20${encodeURIComponent(event.data.title)}`}
+                class="inline-flex items-center gap-1 text-sky-800 font-semibold hover:underline"
+              >
+                Zugangslink per E-Mail anfragen →
+              </a>
+            </div>
+          )}
+        </div>
+      )}
+
+      <!-- 2. Physical Location & Navigation Box -->
+      {(format === 'praesenz' || format === 'hybrid') && (
+        <div class:list={[
+          "bg-white p-6 sm:p-8 rounded-lg border border-[#E5DFD5] shadow-xs space-y-4",
+          format === 'praesenz' ? 'md:col-span-2' : 'md:col-span-1'
+        ]}>
+          <div class="flex items-center gap-2.5 border-b border-[#F0EBE1] pb-3">
+            <div class="w-8 h-8 rounded-md bg-[#F4F0E8] flex items-center justify-center text-brand-navy">
+              <svg class="w-4 h-4 text-brand-steel" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <div>
+              <span class="text-[11px] font-semibold text-brand-steel uppercase tracking-wider block">Veranstaltungsort</span>
+              <h3 class="font-heading font-bold text-base text-brand-navy">
+                {event.data.location || 'Baden-Württemberg'}
+              </h3>
+            </div>
+          </div>
+
+          <div class="text-xs sm:text-sm text-slate-700 space-y-1">
+            {event.data.address ? (
+              <p class="font-medium text-slate-900">{event.data.address}</p>
+            ) : event.data.location ? (
+              <p class="text-slate-600">{event.data.location}</p>
+            ) : (
+              <p class="text-slate-500 italic">Genauer Veranstaltungsort wird in der Ankündigung bekanntgegeben.</p>
+            )}
+          </div>
+
+          {googleMapsUrl && (
+            <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 text-xs">
+              <a
+                href={googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-1.5 bg-[#FAF8F5] hover:bg-[#F2ECE1] text-brand-navy font-semibold px-4 py-2.5 rounded-md border border-[#D5CFC5] shadow-2xs transition"
+              >
+                <svg class="w-3.5 h-3.5 text-brand-steel" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+                <span>Route planen (Google Maps)</span>
+              </a>
+
+              {appleMapsUrl && (
+                <a
+                  href={appleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center text-slate-500 hover:text-brand-navy hover:underline px-2 py-1 transition text-[11px]"
+                >
+                  In Apple Maps öffnen ↗
+                </a>
+              )}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="mt-8 pt-6 border-t border-[#E8E2D8] flex justify-between items-center text-xs">
+      <a href="/veranstaltungen" class="font-semibold text-brand-navy hover:text-brand-steel flex items-center gap-1">
+        <span>← Alle Veranstaltungen</span>
+      </a>
+      <a
+        href={`mailto:info@gfd-bw.org?subject=Rückfrage:%20${encodeURIComponent(event.data.title)}`}
+        class="font-semibold text-brand-steel hover:text-brand-navy flex items-center gap-1"
+      >
+        <span>Frage zu diesem Event stellen →</span>
+      </a>
+    </div>
+  </article>
+</BaseLayout>

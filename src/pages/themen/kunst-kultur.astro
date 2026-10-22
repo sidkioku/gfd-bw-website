@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+---
+
+<BaseLayout title="Kunst & Kultur" description="Kunst und Kultur – Gesellschaft für Dialog Baden-Württemberg e.V.">
+  <PageHeader
+    title="Kunst & Kultur"
+    subtitle="Kultur verbindet Herzen und überwindet sprachliche, ethnische und religiöse Grenzen."
+    backLink={{ href: '/themen', label: 'Zurück zur Themenübersicht' }}
+  />
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-8 py-16 space-y-8 text-body-text text-sm sm:text-base leading-relaxed">
+    <div class="rounded-xl overflow-hidden shadow-sm h-64 sm:h-80 md:h-96 w-full">
+      <img
+        src="/images/14490340600_cd3eeb1bbe_o-scaled.jpg"
+        alt="Kunst & Kultur – Symphony of the Earth"
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+    </div>
+
+    <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-xs space-y-4">
+      <h2 class="text-2xl font-bold font-heading text-brand-navy">Ästhetik des Dialogs</h2>
+      <p>
+        Wo Worte manchmal an Grenzen stoßen, vermag die Kunst neue Zugänge zueinander zu eröffnen. Musik, Poesie, bildende Kunst und Theater sind elementare Bestandteile unserer Begegnungsphilosophie.
+      </p>
+      <p>
+        Zu den Höhepunkten unserer Kulturarbeit gehören interkulturelle Konzerte wie <em>Symphony of the Earth</em>, Gedenkabende zu Dichtern und Mystikern wie Dschelaleddin Rumi (Şeb-i Arûs) sowie Autorenlesungen und Ausstellungen.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,11 @@
+---
+title: "Islam Kompakt - MuslimInnen erzählen"
+date: 2023-07-14
+location: ""
+description: "Der Islam – eine Religion, die heute mehr denn je als Werkzeug politischer Ideologien und gewaltbereiter Extremisten missbraucht wird, hinterlässt ein verzerrtes und Vorurteil behaftetes Bild vom Isla"
+categories: []
+past: true
+image: "/images/Cover.jpg"
+---
+
+Der Islam – eine Religion, die heute mehr denn je als Werkzeug politischer Ideologien und gewaltbereiter Extremisten missbraucht wird, hinterlässt ein verzerrtes und Vorurteil behaftetes Bild vom Islam und von Menschen muslimischen Glaubens. Hinzu kommt mancherorts ein Islam-Verständnis, das politischen Ideologien untergeordnet ist, antisemitische Ressentiments schürt und zur gesellschaftlichen Zerrissenheit führt. Um dieser Entwicklung entgegen zu wirken und für den gesellschaftlichen Zusammenhalt sich einzusetzen, ist es nötig, dass Muslime sich ihrer Verantwortung der gesellschaftlichen Teilhabe bewusst werden, sich für ein pluralistisches und demokratisches Miteinander engagieren und ebenso über ihre eigene Glaubens- und Gefühlswelt offen sprechen. Um dieser Verantwortung gerecht zu werden, möchten wir mit unserem Projekt „Islam Kompakt – MuslimInnen erzählen“ eine Plattform des Austauschs und Dialogs schaffen, ein Sprachrohr für Muslime mit einem Islamverständnis, welches traditionsbewusst aber auch gleichzeitig aufgeklärt ist und sich der spirituellen Entwicklung des Individuums und der gesellschaftlichen Harmonie sowie des zivilen Miteinanders verpflichtet fühlt. In diesem Sinne trägt unser Islam Kompakt-Projekt einen aufklärenden, informierenden und Dialog-offenen Charakter, der beidseitigen Vorurteilen entgegenwirkt und zu gesellschaftlichem Zusammenhalt beiträgt. Das Projekt bietet, mit dem Ziel der Vielfalt innerhalb des Islams gerecht zu werden, eine Plattform für Referent/innen mit verschiedenen muslimischen Hintergründen/Konfessionen, die sich sowohl gesellschaftlich relevanten Themen stellen als auch den Außenstehenden einen informierenden Einblick in die islamische Glaubens- und Gefühlswelt gewähren. Für weitere Informationen: www.islam-kompakt.de oder www.gfd-bw.org Gesellschaft für Dialog Baden- Württemberg.

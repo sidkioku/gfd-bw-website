@@ -1,0 +1,110 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const dateFormatted = post.data.date.toLocaleDateString('de-DE', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+const siteUrl = 'https://gfd-bw.org';
+const postUrl = `${siteUrl}/aktuelles/${post.slug}`;
+const imageUrl = post.data.image ? `${siteUrl}${post.data.image.startsWith('/') ? post.data.image : '/' + post.data.image}` : undefined;
+
+const postJsonLd = {
+  '@type': 'BlogPosting',
+  '@id': `${postUrl}#article`,
+  headline: post.data.title,
+  description: post.data.description || post.data.title,
+  datePublished: post.data.date.toISOString(),
+  dateModified: post.data.date.toISOString(),
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': postUrl,
+  },
+  image: imageUrl ? [imageUrl] : undefined,
+  author: {
+    '@id': `${siteUrl}/#organization`,
+  },
+  publisher: {
+    '@id': `${siteUrl}/#organization`,
+  },
+};
+
+const breadcrumbJsonLd = {
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Startseite',
+      item: siteUrl,
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Aktuelles',
+      item: `${siteUrl}/aktuelles`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: post.data.title,
+      item: postUrl,
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description || `${post.data.title} – Bericht und Information der Gesellschaft für Dialog Baden-Württemberg e.V.`}
+  image={post.data.image}
+  article={true}
+  publishedTime={post.data.date.toISOString()}
+  jsonLd={[postJsonLd, breadcrumbJsonLd]}
+>
+  <PageHeader
+    title={post.data.title}
+    subtitle={`${dateFormatted}${post.data.categories.length > 0 ? ' • ' + post.data.categories.join(', ') : ''}`}
+    backLink={{ href: '/aktuelles', label: 'Zurück zu allen Beiträgen' }}
+  />
+
+  <article class="max-w-4xl mx-auto px-4 sm:px-8 py-16 space-y-8">
+    {post.data.image && (
+      <div class="rounded-xl overflow-hidden shadow-sm max-h-[460px] w-full bg-slate-50 flex items-center justify-center">
+        <img
+          src={post.data.image}
+          alt={post.data.title}
+          class="w-full h-full object-contain max-h-[460px]"
+          loading="eager"
+        />
+      </div>
+    )}
+
+    <div class="bg-white p-8 sm:p-12 rounded-xl border border-gray-100 shadow-sm prose prose-slate max-w-none prose-headings:font-heading prose-headings:text-brand-navy prose-a:text-brand-blue">
+      <Content />
+    </div>
+
+    <div class="mt-8 pt-6 border-t border-gray-200 flex justify-between items-center text-xs">
+      <a href="/aktuelles" class="font-semibold text-brand-blue hover:text-brand-navy">← Alle Beiträge</a>
+      <a href="/kontakt" class="font-semibold text-brand-blue hover:text-brand-navy">Presseanfrage stellen →</a>
+    </div>
+  </article>
+</BaseLayout>

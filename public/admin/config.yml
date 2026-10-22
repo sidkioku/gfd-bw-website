@@ -1,0 +1,68 @@
+backend:
+  name: git-gateway
+  branch: master
+
+# Erlaubt lokales Testen im Entwicklungsmodus
+local_backend: true
+
+# Medienverwaltung (Uploads landen im Bildordner)
+media_folder: "public/images"
+public_folder: "/images"
+
+# Deutsche Benutzeroberfläche
+locale: "de"
+
+# Sammlungen / Collections
+collections:
+  # 1. Veranstaltungen
+  - name: "events"
+    label: "Termine & Veranstaltungen"
+    label_singular: "Veranstaltung"
+    folder: "src/content/events"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} ({{date | date('DD.MM.YYYY')}}) — {{format}}"
+    sortable_fields: ["date", "title"]
+    editor:
+      preview: false
+    fields:
+      - { label: "Veranstaltungstitel", name: "title", widget: "string", hint: "Aussagekräftiger Titel der Veranstaltung" }
+      - { label: "Datum & Uhrzeit", name: "date", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ss.SSS[Z]", date_format: "DD.MM.YYYY", time_format: "HH:mm" }
+      - { label: "Enddatum & -uhrzeit (optional)", name: "endDate", widget: "datetime", required: false, format: "YYYY-MM-DDTHH:mm:ss.SSS[Z]", date_format: "DD.MM.YYYY", time_format: "HH:mm" }
+      - label: "Format der Veranstaltung"
+        name: "format"
+        widget: "select"
+        options:
+          - { label: "Vor Ort (Präsenzveranstaltung)", value: "praesenz" }
+          - { label: "Online (Virtueller Zoom-Raum)", value: "online" }
+          - { label: "Hybrid (Vor Ort & Online)", value: "hybrid" }
+        default: "praesenz"
+      - { label: "Name des Veranstaltungsorts", name: "location", widget: "string", required: false, hint: "z.B. 'Hospitalhof Stuttgart' oder 'Online via Zoom'" }
+      - { label: "Genaue Straßenadresse (für Google / Apple Maps)", name: "address", widget: "string", required: false, hint: "z.B. 'Büchsenstraße 33, 70174 Stuttgart' (Ermöglicht automatische Routenplanung)" }
+      - { label: "Zoom-Meeting-Link (nur für Online & Hybrid)", name: "zoomUrl", widget: "string", required: false, hint: "z.B. https://zoom.us/j/82415082026" }
+      - { label: "Zoom Meeting-ID (optional)", name: "zoomMeetingId", widget: "string", required: false, hint: "z.B. 824 1508 2026" }
+      - { label: "Zoom Kenncode / Passwort (optional)", name: "zoomPasscode", widget: "string", required: false }
+      - { label: "Kurzbeschreibung (Vorschau & Google-Suche)", name: "description", widget: "text", required: false }
+      - { label: "Kategorien", name: "categories", widget: "list", required: false, hint: "z.B. 'Interreligiöser Dialog', 'Demokratie', 'Frauenmahl'" }
+      - { label: "Titelbild / Veranstaltungsflyer", name: "image", widget: "image", required: false }
+      - { label: "Bereits vergangen?", name: "past", widget: "boolean", default: false, hint: "Kann manuell oder per Datum gefiltert werden" }
+      - { label: "Ausführlicher Beschreibungstext", name: "body", widget: "markdown" }
+
+  # 2. Aktuelles / Berichte
+  - name: "posts"
+    label: "Aktuelles & Berichte"
+    label_singular: "Beitrag"
+    folder: "src/content/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} ({{date | date('DD.MM.YYYY')}})"
+    sortable_fields: ["date", "title"]
+    editor:
+      preview: false
+    fields:
+      - { label: "Beitragstitel", name: "title", widget: "string" }
+      - { label: "Veröffentlichungsdatum", name: "date", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ss.SSS[Z]", date_format: "DD.MM.YYYY", time_format: "HH:mm" }
+      - { label: "Kategorien", name: "categories", widget: "list", required: false }
+      - { label: "Kurzbeschreibung (Vorschau)", name: "description", widget: "text", required: false }
+      - { label: "Titelbild", name: "image", widget: "image", required: false }
+      - { label: "Inhalt", name: "body", widget: "markdown" }

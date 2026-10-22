@@ -1,0 +1,174 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+---
+
+<BaseLayout title="Kontakt & Standorte" description="Kontaktieren Sie die Gesellschaft für Dialog Baden-Württemberg e.V. in Stuttgart oder Mannheim.">
+  <PageHeader
+    title="Kontakt aufnehmen"
+    subtitle="Haben Sie Fragen zu unseren Projekten, möchten Sie Mitglied werden oder eine Veranstaltung anfragen? Wir freuen uns auf den Austausch mit Ihnen."
+  />
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-8 py-16 space-y-12">
+    <!-- Standorte Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Stuttgart -->
+      <div class="bg-white p-8 rounded-lg border border-[#E5DFD5] shadow-xs space-y-5">
+        <div class="border-b border-[#F0EBE1] pb-4">
+          <span class="text-[11px] font-semibold uppercase tracking-wider text-brand-steel block mb-1">Landesgeschäftsstelle</span>
+          <h2 class="font-heading font-bold text-xl text-brand-navy">Stuttgart</h2>
+          <p class="text-xs text-slate-500">Gesellschaft für Dialog Baden-Württemberg e.V.</p>
+        </div>
+        <div class="space-y-3 text-xs sm:text-sm text-slate-600">
+          <p class="flex items-start gap-2.5">
+            <svg class="w-4 h-4 text-brand-steel flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <span>Oppelner Straße 1<br />70372 Stuttgart</span>
+          </p>
+          <p class="flex items-center gap-2.5">
+            <svg class="w-4 h-4 text-brand-steel flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            <a href="tel:+4971191258075" class="hover:text-brand-navy hover:underline">+49 (0) 711 - 912 580 75</a>
+          </p>
+          <p class="flex items-center gap-2.5">
+            <svg class="w-4 h-4 text-brand-steel flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <a href="mailto:info@gfd-bw.org" class="text-brand-steel font-semibold hover:text-brand-navy hover:underline">info@gfd-bw.org</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Mannheim -->
+      <div class="bg-white p-8 rounded-lg border border-[#E5DFD5] shadow-xs space-y-5">
+        <div class="border-b border-[#F0EBE1] pb-4">
+          <span class="text-[11px] font-semibold uppercase tracking-wider text-brand-steel block mb-1">Regionalstelle Kurpfalz</span>
+          <h2 class="font-heading font-bold text-xl text-brand-navy">Mannheim</h2>
+          <p class="text-xs text-slate-500">Gesellschaft für Dialog Mannheim e.V.</p>
+        </div>
+        <div class="space-y-3 text-xs sm:text-sm text-slate-600">
+          <p class="flex items-start gap-2.5">
+            <svg class="w-4 h-4 text-brand-steel flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <span>Hans-Thoma-Str. 34<br />68163 Mannheim</span>
+          </p>
+          <p class="flex items-center gap-2.5">
+            <svg class="w-4 h-4 text-brand-steel flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <a href="mailto:mannheim@gfd-bw.org" class="text-brand-steel font-semibold hover:text-brand-navy hover:underline">mannheim@gfd-bw.org</a>
+          </p>
+          <p class="flex items-center gap-2.5">
+            <svg class="w-4 h-4 text-brand-steel flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+            <a href="https://www.gfd-ma.de" target="_blank" rel="noopener noreferrer" class="hover:text-brand-navy hover:underline">www.gfd-ma.de</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Form (Netlify Form) -->
+    <div class="bg-white p-8 sm:p-12 rounded-lg border border-[#E5DFD5] shadow-xs space-y-6">
+      <div class="space-y-1">
+        <h2 class="font-heading font-bold text-2xl text-brand-navy">Schreiben Sie uns eine Nachricht</h2>
+        <p class="text-xs sm:text-sm text-slate-600">
+          Wir melden uns in der Regel innerhalb von 1–2 Werktagen bei Ihnen zurück.
+        </p>
+      </div>
+
+      <!-- Netlify Form -->
+      <form
+        name="kontakt"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        class="space-y-6"
+      >
+        <input type="hidden" name="form-name" value="kontakt" />
+        <p class="hidden">
+          <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <label for="name" class="block text-xs font-bold uppercase tracking-wider text-brand-navy mb-2">Ihr Name *</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              placeholder="Vor- und Nachname"
+              class="w-full px-4 py-3 text-sm rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue"
+            />
+          </div>
+
+          <div>
+            <label for="email" class="block text-xs font-bold uppercase tracking-wider text-brand-navy mb-2">Ihre E-Mail-Adresse *</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="name@beispiel.de"
+              class="w-full px-4 py-3 text-sm rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue"
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <label for="phone" class="block text-xs font-bold uppercase tracking-wider text-brand-navy mb-2">Telefonnummer (optional)</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="+49 ..."
+              class="w-full px-4 py-3 text-sm rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue"
+            />
+          </div>
+
+          <div>
+            <label for="subject" class="block text-xs font-bold uppercase tracking-wider text-brand-navy mb-2">Betreff *</label>
+            <select
+              id="subject"
+              name="subject"
+              required
+              class="w-full px-4 py-3 text-sm rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue bg-white"
+            >
+              <option value="">Bitte Thema wählen...</option>
+              <option value="Allgemeine Anfrage">Allgemeine Anfrage</option>
+              <option value="Veranstaltung">Frage zu einer Veranstaltung</option>
+              <option value="Mitgliedschaft">Mitgliedschaft & Ehrenamt</option>
+              <option value="Kooperation">Kooperationsanfrage</option>
+              <option value="Presse">Presse & Medien</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="message" class="block text-xs font-bold uppercase tracking-wider text-brand-navy mb-2">Ihre Nachricht *</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            required
+            placeholder="Wie können wir Ihnen weiterhelfen?"
+            class="w-full px-4 py-3 text-sm rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue"
+          ></textarea>
+        </div>
+
+        <div class="flex items-start gap-2">
+          <input
+            type="checkbox"
+            id="consent"
+            name="consent"
+            required
+            class="mt-1 text-brand-blue rounded border-gray-300 focus:ring-brand-blue"
+          />
+          <label for="consent" class="text-xs text-body-text">
+            Ich willige ein, dass meine Angaben zur Kontaktaufnahme und Zuordnung für eventuelle Rückfragen gespeichert und verarbeitet werden. Weitere Hinweise finden Sie in unserer <a href="/datenschutz" class="text-brand-blue underline">Datenschutzerklärung</a>. *
+          </label>
+        </div>
+
+        <button
+          type="submit"
+          class="bg-brand-blue hover:bg-brand-navy text-white font-heading font-bold px-8 py-3.5 rounded-lg shadow-sm hover:shadow transition-all text-sm"
+        >
+          Nachricht jetzt absenden
+        </button>
+      </form>
+    </div>
+  </div>
+</BaseLayout>

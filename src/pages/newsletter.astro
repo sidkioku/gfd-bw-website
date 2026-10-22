@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+---
+
+<BaseLayout title="Newsletter" description="Abonnieren Sie den Newsletter der Gesellschaft für Dialog Baden-Württemberg e.V. für regelmäßige Einladungen und Berichte.">
+  <PageHeader
+    title="GfD BW Newsletter"
+    subtitle="Erhalten Sie ca. 1–2 Mal pro Monat Einladungen zu aktuellen Veranstaltungen, Podiumsdiskussionen und Projektberichte direkt per E-Mail."
+  />
+
+  <div class="max-w-2xl mx-auto px-4 sm:px-8 py-16">
+    <div class="bg-white p-8 sm:p-12 rounded-xl border border-gray-100 shadow-sm space-y-6">
+      <form
+        name="newsletter"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        class="space-y-5"
+      >
+        <input type="hidden" name="form-name" value="newsletter" />
+        <p class="hidden">
+          <label>Don’t fill this out: <input name="bot-field" /></label>
+        </p>
+
+        <div>
+          <label for="name" class="block text-xs font-bold uppercase tracking-wider text-brand-navy mb-2">Ihr Name (optional)</label>
+          <input type="text" id="name" name="name" placeholder="Vorname Nachname" class="w-full px-4 py-3 text-sm rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue" />
+        </div>
+
+        <div>
+          <label for="email" class="block text-xs font-bold uppercase tracking-wider text-brand-navy mb-2">Ihre E-Mail-Adresse *</label>
+          <input type="email" id="email" name="email" required placeholder="name@beispiel.de" class="w-full px-4 py-3 text-sm rounded-lg border border-gray-200 focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue" />
+        </div>
+
+        <div class="flex items-start gap-2 pt-2">
+          <input type="checkbox" id="consent" name="consent" required class="mt-1 text-brand-blue rounded border-gray-300" />
+          <label for="consent" class="text-xs text-body-text">
+            Ich willige ein, den kostenlosen Newsletter der Gesellschaft für Dialog Baden-Württemberg e.V. zu erhalten. Sie können den Newsletter jederzeit mit einem Klick wieder abbestellen. *
+          </label>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full bg-brand-blue hover:bg-brand-navy text-white font-heading font-bold px-8 py-3.5 rounded-lg shadow-sm transition text-sm"
+        >
+          Kostenlos anmelden
+        </button>
+      </form>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+---
+
+<BaseLayout title="Interreligiöser & Interkultureller Dialog" description="Interreligiöser und interkultureller Dialog – Gesellschaft für Dialog Baden-Württemberg e.V.">
+  <PageHeader
+    title="Interreligiöser & Interkultureller Dialog"
+    subtitle="Begegnungsräume für Menschen verschiedener Religionen, Kulturen und Traditionen auf Augenhöhe."
+    backLink={{ href: '/themen', label: 'Zurück zur Themenübersicht' }}
+  />
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-8 py-16 space-y-8 text-body-text text-sm sm:text-base leading-relaxed">
+    <div class="rounded-xl overflow-hidden shadow-sm h-64 sm:h-80 md:h-96 w-full">
+      <img
+        src="/images/025A02521-scaled.jpg"
+        alt="Interreligiöser & Interkultureller Dialog"
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+    </div>
+
+    <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-xs space-y-4">
+      <h2 class="text-2xl font-bold font-heading text-brand-navy">Gemeinsamkeiten entdecken, Unterschiede würdigen</h2>
+      <p>
+        Der interreligiöse Dialog ist seit unserer Gründung 2006 der Kern unserer Vereinsarbeit. In einer zunehmend säkularen und gleichzeitig religiös vielfältigen Gesellschaft ist das offene Gespräch zwischen Christinnen, Juden, Muslimen und Andersdenkenden unerlässlich für den sozialen Frieden.
+      </p>
+      <p>
+        Wir organisieren regelmäßige Dialogforen, theologische Lernkreise wie „Bibel–Koran“ unter wissenschaftlicher Begleitung, gemeinsame Fastenbrechen (Iftar) im Rahmen von „Ramadan im Ländle“ sowie Trialogreisen an historische Stätten.
+      </p>
+    </div>
+
+    <div class="bg-brand-light/50 p-6 rounded-xl border border-brand-steel/20 space-y-3">
+      <h3 class="font-heading font-bold text-base text-brand-navy">Typische Formate in diesem Bereich:</h3>
+      <ul class="list-disc list-inside space-y-1.5 text-xs sm:text-sm">
+        <li>Lernkreis „Bibel und Koran“ in Zusammenarbeit mit Universitäten und Kirchen</li>
+        <li>Landesweite Initiative „Ramadan im Ländle“ mit öffentlichen Fastenbrechen</li>
+        <li>Abrahamitische Symposien und Friedensgebete</li>
+        <li>Trialogreisen (z.B. nach Israel, Spanien und Bosnien)</li>
+      </ul>
+    </div>
+  </div>
+</BaseLayout>

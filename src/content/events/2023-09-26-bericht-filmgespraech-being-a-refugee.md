@@ -1,0 +1,11 @@
+---
+title: "Bericht Filmgespräch Being A Refugee"
+date: 2023-09-26
+location: ""
+description: "Gemeinsam mit der Israelitischen Religionsgemeinschaft Württemberg haben wir im September einen ganz besonderen Dokumentarfilm \"Being A Refugee\" gezeigt. Verfilmt und präsentiert vom Stuttgarter Lehrh"
+categories: []
+past: true
+image: "/images/Flyer-Being-A-Refugee.jpeg"
+---
+
+Gemeinsam mit der Israelitischen Religionsgemeinschaft Württemberg haben wir im September einen ganz besonderen Dokumentarfilm "Being A Refugee" gezeigt. Verfilmt und präsentiert vom Stuttgarter Lehrhaus, Stiftung für interreligiösen Dialog, widmet sich dieser Film dem Themenkomplex Flucht und Vertreibung aus theologischer, historischer und universeller Perspektive. Der Film enthält neben persönlichen Berichten von Zeitzeugen, die unter anderem als Austauschkandidaten das KZ-Bergen-Belsen überlebten, bewegende Interviews mit heutigen Flüchtlingsfamilien in Deutschland und Israel, die im Rahmen der aktuellen Flüchtlingskrisen aus ihren Heimatländern flüchten mussten. Einblicke in Beispiele gelungener Integrationsprozesse sowie interreligiöse Perspektiven ergänzen die bewegende Dokumentation. Carmel zeigt auf, wie Juden, Christen und Muslime, sowie Angehörige anderer Glaubensvorstellungen gemeinsam am gleichen "Flüchtlingsdiskurs" teilnehmen. Somit wird das Schicksal von Flüchtlingen über spezielle historische und ethnische Kontexte hinaus zu einem universellen Paradigma. Beim anschließenden Filmgespräch mit Dr. Nurit Carmel hatte das Publikum die Möglichkeit Fragen an die Regisseurin zu stellen. Dr. Nurit Carmel ist Dokumentarfilmregisseurin aus Haifa, Israel. Sie hat zahlreiche Filmprojekte für die Holocaust Gedenkstätte in Yad Vashem betreut. Nach einigen Jahren im Bereich der Erinnerungs- und Gedenkkultur in Israel, Österreich und Deutschland arbeitet Carmel derzeit freiberuflich als Filmemacherin für die Stiftung Stuttgarter Lehrhaus. Nurit Carmel wurden mehrere Standing Ovations seitens der Zuschauer zuteil. Ihr Film soll an Schulen und unterschiedlichen interreligiösen Schulprojekten gezeigt werden. Kooperation von Gesellschaft für Dialog Baden-Württemberg und Israelitische Religionsgemeinschaft Württemberg.

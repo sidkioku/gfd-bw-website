@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EventCard from '../../components/EventCard.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import { getCollection } from 'astro:content';
+
+const allEvents = await getCollection('events');
+
+// Split into upcoming (chronological nearest first) and past (most recent first)
+const upcoming = allEvents
+  .filter((e) => !e.data.past)
+  .sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
+
+const pastEvents = allEvents
+  .filter((e) => e.data.past)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const recentPast = pastEvents.slice(0, 6);
+---
+
+<BaseLayout title="Veranstaltungen" description="Termine, Seminare und Begegnungsabende der Gesellschaft für Dialog Baden-Württemberg e.V.">
+  <PageHeader
+    title="Veranstaltungen & Termine"
+    subtitle="Entdecken Sie anstehende Vorträge, Lesungen, Seminare, Podiumsdiskussionen und Begegnungsfeste in Baden-Württemberg."
+  >
+    <a
+      slot="action"
+      href="/veranstaltungen/archiv"
+      class="text-sm font-semibold text-brand-navy bg-white hover:bg-slate-50 border border-[#D5CFC5] px-5 py-2.5 rounded-md shadow-xs transition inline-flex items-center gap-1.5"
+    >
+      Zum Veranstaltungsarchiv ({allEvents.length}) →
+    </a>
+  </PageHeader>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-8 py-16 space-y-16">
+    <!-- Upcoming Events Section -->
+    {upcoming.length > 0 && (
+      <div>
+        <div class="flex items-center justify-between mb-6">
+          <div>
+            <span class="text-xs font-semibold text-brand-blue uppercase tracking-wider block mb-1">Vormerken & Teilnehmen</span>
+            <h2 class="text-xl sm:text-2xl font-bold font-heading text-brand-navy">
+              Anstehende Termine ({upcoming.length})
+            </h2>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {upcoming.map((evt) => (
+            <EventCard
+              title={evt.data.title}
+              date={evt.data.date}
+              slug={evt.slug}
+              location={evt.data.location}
+              format={evt.data.format}
+              description={evt.data.description}
+              categories={evt.data.categories}
+              past={false}
+              image={evt.data.image}
+            />
+          ))}
+        </div>
+      </div>
+    )}
+
+    <!-- Recent Past Highlights -->
+    <div>
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <span class="text-xs font-semibold text-brand-steel uppercase tracking-wider block mb-1">Rückblick</span>
+          <h2 class="text-xl sm:text-2xl font-bold font-heading text-brand-navy">
+            Vergangene Veranstaltungen & Höhepunkte
+          </h2>
+        </div>
+        <a
+          href="/veranstaltungen/archiv"
+          class="text-xs sm:text-sm font-semibold text-brand-blue hover:text-brand-navy transition inline-flex items-center gap-1"
+        >
+          Alle {pastEvents.length} vergangenen Events im Archiv →
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {recentPast.map((evt) => (
+          <EventCard
+            title={evt.data.title}
+            date={evt.data.date}
+            slug={evt.slug}
+            location={evt.data.location}
+            format={evt.data.format}
+            description={evt.data.description}
+            categories={evt.data.categories}
+            past={true}
+            image={evt.data.image}
+          />
+        ))}
+      </div>
+    </div>
+
+    <!-- Quick Note / Registration info -->
+    <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-xs flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-1">
+        <h3 class="font-heading font-bold text-base sm:text-lg text-brand-navy">Möchten Sie eine Veranstaltung vorschlagen oder mitwirken?</h3>
+        <p class="text-xs sm:text-sm text-body-text">
+          Wir unterstützen Kooperationen mit Schulen, Kirchen, Moscheegemeinden und zivilgesellschaftlichen Trägern.
+        </p>
+      </div>
+      <a
+        href="/kontakt"
+        class="bg-brand-blue hover:bg-brand-navy text-white text-xs sm:text-sm font-heading font-bold px-6 py-3 rounded-lg shadow-sm transition flex-shrink-0"
+      >
+        Kontakt aufnehmen
+      </a>
+    </div>
+  </div>
+</BaseLayout>

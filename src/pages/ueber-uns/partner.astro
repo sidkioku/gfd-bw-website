@@ -1,0 +1,159 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+
+const memberships = [
+  {
+    name: 'Bund Deutscher Dialoginstitutionen (BDDI)',
+    type: 'Bundesdachverband',
+    logo: '/images/bdd_rgb.png',
+    description: 'Bundesweites Netzwerk von Dialogvereinen zur Förderung des interkulturellen und interreligiösen Austauschs in Deutschland.',
+  },
+  {
+    name: 'Landesnetzwerk Bürgerschaftliches Engagement (LBE BW e.V.)',
+    type: 'Landesnetzwerk',
+    logo: '/images/LBE-scaled.jpg',
+    description: 'Kooperationspartner für bürgerschaftliches Engagement, Ehrenamtsförderung und Initiativen wie „Ramadan im Ländle“.',
+  },
+  {
+    name: 'Allianz gegen Einsamkeit (BMFSFJ)',
+    type: 'Bundesinitiative',
+    logo: '/images/BMBFSFJ_AllianzGegenEinsamkeit_Dachmarke_Logo_V2_RGB.png',
+    description: 'Offizieller Partner der Regierungsinitiative gegen Einsamkeit und soziale Isolation in der Gesellschaft.',
+  },
+];
+
+const partners = [
+  {
+    name: 'Hospitalhof Stuttgart',
+    type: 'Evangelisches Bildungszentrum',
+    logo: '/images/logo_hospitalhof_rgb.png',
+    description: 'Zentrum für Bildung, Kultur und Spiritualität der Evangelischen Gesamtkirchengemeinde Stuttgart.',
+  },
+  {
+    name: 'Arbeitsgemeinschaft Christlicher Kirchen (ACK BW)',
+    type: 'Ökumene & Kirchen',
+    logo: '/images/ACK.png',
+    description: 'Dachverband christlicher Konfessionen in Baden-Württemberg für theologischen und interreligiösen Austausch.',
+  },
+  {
+    name: 'Israelitische Religionsgemeinschaft Württembergs (IRGW)',
+    type: 'Jüdische Gemeinde',
+    logo: '/images/Logo-IRGW.png',
+    description: 'Wichtiger Partner im jüdisch-muslimischen und abrahamitischen Dialog im Raum Stuttgart.',
+  },
+  {
+    name: 'Haus Abraham e.V.',
+    type: 'Interreligiöser Dialog',
+    logo: '/images/2017_HausAbraham_LOGO-gelbHintergrund-709-248-3001.jpg',
+    description: 'Partner bei abrahamitischen Begegnungen, Trialogreisen und interkulturellen Bildungsformaten.',
+  },
+  {
+    name: 'Katholisches Bildungswerk Stuttgart (keb)',
+    type: 'Katholische Erwachsenenbildung',
+    logo: '/images/keb-logo-freigestellt1.png',
+    description: 'Träger für christliche und interreligiöse Bildungsangebote in der Region Stuttgart.',
+  },
+  {
+    name: 'Evangelische Jugendkirche Stuttgart (EJUKIS)',
+    type: 'Jugendarbeit',
+    logo: '/images/EJUKIS_Logo-4c.png',
+    description: 'Partner bei Jugendbegegnungen, interreligiösen Jugendforen und Kreativworkshops.',
+  },
+  {
+    name: 'Landeszentrale für politische Bildung (LpB)',
+    type: 'Demokratieförderung',
+    logo: '/images/Landeszentrale-fuer-politische-Bildung.png',
+    description: 'Partner bei Veranstaltungen zur Extremismusprävention und Stärkung der Bürgergesellschaft.',
+  },
+  {
+    name: 'Stiftung gegen Rassismus (SGR)',
+    type: 'Internationale Wochen gegen Rassismus',
+    logo: '/images/SGR_Stempel_2018_Transparenz-scaled.png',
+    description: 'Aktionsbündnis für Vielfalt und Antirassismusarbeit in Baden-Württemberg.',
+  },
+  {
+    name: 'Stuttgarter Femina e.V. (Stufem)',
+    type: 'Frauenförderung',
+    logo: '/images/Stufem.png',
+    description: 'Kooperationspartner für Frauenbegegnungen, Empowerment und Frauentrialoge.',
+  },
+  {
+    name: 'Stuttgarter Lehrhaus',
+    type: 'Interreligiöse Akademie',
+    logo: '/images/Stuttgarter-Lehrhaus.png',
+    description: 'Forum für interreligiösen Dialog, Philosophie und theologische Studien in Stuttgart.',
+  },
+];
+---
+
+<BaseLayout title="Partnerorganisationen" description="Kooperationen und Netzwerkpartner der Gesellschaft für Dialog Baden-Württemberg e.V.">
+  <PageHeader
+    title="Partnerorganisationen"
+    subtitle="Gemeinsam erreichen wir mehr: Unsere Netzwerke, institutionellen Kooperationen und Bündnisse."
+    backLink={{ href: '/ueber-uns', label: 'Zurück zu Über uns' }}
+  />
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-8 py-16 space-y-16">
+    <!-- Intro -->
+    <p class="text-sm sm:text-base text-body-text leading-relaxed max-w-3xl">
+      Erfolgreicher Dialog braucht starke Partner. Die GfD BW e.V. arbeitet seit vielen Jahren eng mit staatlichen, kirchlichen, universitären und zivilgesellschaftlichen Institutionen in Baden-Württemberg und auf Bundesebene zusammen.
+    </p>
+
+    <!-- Mitgliedschaften Section -->
+    <section class="space-y-6">
+      <div>
+        <span class="text-xs font-semibold text-brand-blue uppercase tracking-wider block mb-1">Dachverbände & Bündnisse</span>
+        <h2 class="text-2xl font-heading font-bold text-brand-navy">Unsere Mitgliedschaften</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {memberships.map((m) => (
+          <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-xs hover:border-brand-blue hover:shadow-md transition flex flex-col">
+            <div class="h-20 flex items-center justify-center p-2 mb-4 bg-slate-50/60 rounded-lg">
+              <img
+                src={m.logo}
+                alt={m.name}
+                class="max-h-16 max-w-full object-contain"
+                loading="lazy"
+              />
+            </div>
+            <span class="text-[11px] font-semibold uppercase tracking-wider text-brand-steel bg-brand-light/60 px-2.5 py-1 rounded-full self-start mb-2">
+              {m.type}
+            </span>
+            <h3 class="font-heading font-bold text-base text-brand-navy mb-2">{m.name}</h3>
+            <p class="text-xs text-body-text leading-relaxed mt-auto">{m.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Kooperationspartner Section -->
+    <section class="space-y-6">
+      <div>
+        <span class="text-xs font-semibold text-brand-blue uppercase tracking-wider block mb-1">Starke Netzwerke im Ländle</span>
+        <h2 class="text-2xl font-heading font-bold text-brand-navy">Unsere Kooperationspartner</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {partners.map((p) => (
+          <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-xs hover:border-brand-blue hover:shadow-md transition flex flex-col">
+            <div class="h-20 flex items-center justify-center p-2 mb-4 bg-slate-50/60 rounded-lg">
+              <img
+                src={p.logo}
+                alt={p.name}
+                class="max-h-16 max-w-full object-contain"
+                loading="lazy"
+              />
+            </div>
+            <span class="text-[11px] font-semibold uppercase tracking-wider text-brand-steel bg-brand-light/60 px-2.5 py-1 rounded-full self-start mb-2">
+              {p.type}
+            </span>
+            <h3 class="font-heading font-bold text-base text-brand-navy mb-2">{p.name}</h3>
+            <p class="text-xs text-body-text leading-relaxed mt-auto">{p.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</BaseLayout>

@@ -1,0 +1,179 @@
+---
+import '@fontsource/montserrat/400.css';
+import '@fontsource/montserrat/600.css';
+import '@fontsource/montserrat/700.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  article?: boolean;
+  publishedTime?: string;
+  modifiedTime?: string;
+  jsonLd?: Record<string, any> | Array<Record<string, any>>;
+}
+
+const {
+  title,
+  description = 'Gesellschaft für Dialog Baden-Württemberg e.V. – Wir setzen uns für einen offenen, respektvollen und konstruktiven Austausch in unserer vielfältigen Gesellschaft ein.',
+  image,
+  article = false,
+  publishedTime,
+  modifiedTime,
+  jsonLd,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://gfd-bw.org');
+
+// Avoid title duplication
+const fullTitle = title.includes('Gesellschaft für Dialog')
+  ? title
+  : `${title} | Gesellschaft für Dialog Baden-Württemberg e.V.`;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://gfd-bw.org';
+
+// Default OG Image fallback
+const defaultOgImage = `${siteUrl}/images/Luftaufnahme_vom_Birkenkopf_in_Stuttgart-scaled.jpg`;
+const ogImageUrl = image
+  ? (image.startsWith('http') ? image : `${siteUrl}${image.startsWith('/') ? image : '/' + image}`)
+  : defaultOgImage;
+
+// Assemble base Schema.org graph
+const baseGraph: Array<Record<string, any>> = [
+  {
+    '@type': 'Organization',
+    '@id': `${siteUrl}/#organization`,
+    name: 'Gesellschaft für Dialog Baden-Württemberg e.V.',
+    url: siteUrl,
+    logo: `${siteUrl}/images/Logo-GfD-BW--scaled.png`,
+    sameAs: [
+      'https://www.facebook.com/DialogBegegnungen/',
+      'https://www.instagram.com/gfd_bw',
+      'https://youtube.com/@gesellschaftfurdialogbaden2564',
+    ],
+    address: [
+      {
+        '@type': 'PostalAddress',
+        streetAddress: 'Oppelner Straße 1',
+        addressLocality: 'Stuttgart',
+        postalCode: '70372',
+        addressRegion: 'Baden-Württemberg',
+        addressCountry: 'DE',
+      },
+      {
+        '@type': 'PostalAddress',
+        streetAddress: 'Hans-Thoma-Str. 34',
+        addressLocality: 'Mannheim',
+        postalCode: '68163',
+        addressRegion: 'Baden-Württemberg',
+        addressCountry: 'DE',
+      },
+    ],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+49-711-91258075',
+      contactType: 'customer service',
+      email: 'info@gfd-bw.org',
+    },
+  },
+  {
+    '@type': 'WebSite',
+    '@id': `${siteUrl}/#website`,
+    url: siteUrl,
+    name: 'Gesellschaft für Dialog Baden-Württemberg e.V.',
+    publisher: {
+      '@id': `${siteUrl}/#organization`,
+    },
+    inLanguage: 'de-DE',
+  },
+];
+
+// Merge custom page-specific JSON-LD items if provided
+if (jsonLd) {
+  if (Array.isArray(jsonLd)) {
+    baseGraph.push(...jsonLd);
+  } else {
+    baseGraph.push(jsonLd);
+  }
+}
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': baseGraph,
+};
+---
+
+<!doctype html>
+<html lang="de" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
+    <meta property="og:site_name" content="Gesellschaft für Dialog Baden-Württemberg e.V." />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:type" content={article ? 'article' : 'website'} />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content={fullTitle} />
+    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content={fullTitle} />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  </head>
+  <body class="bg-body-bg text-body-text font-body min-h-screen flex flex-col antialiased">
+    <Header />
+    <main class="flex-grow">
+      <slot />
+    </main>
+    <Footer />
+
+    <!-- Netlify Identity Token Redirection for CMS Editors (100% DSGVO-konform: Lädt nur bei Einladungs-Token) -->
+    <script is:inline>
+      if (window.location.hash && window.location.hash.includes('_token=')) {
+        const script = document.createElement('script');
+        script.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js';
+        script.onload = () => {
+          if (window.netlifyIdentity) {
+            window.netlifyIdentity.on('init', (user) => {
+              if (!user) {
+                window.netlifyIdentity.on('login', () => {
+                  document.location.href = '/admin/';
+                });
+              }
+            });
+          }
+        };
+        document.head.appendChild(script);
+      }
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  /* Custom scrollbar and base typography */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+  }
+</style>

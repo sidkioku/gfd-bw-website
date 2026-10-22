@@ -1,0 +1,10 @@
+---
+title: "Lesung mit Jochen Thies"
+date: 2020-02-14
+location: ""
+description: "Vor 75 Jahren begann die Schlussphase des Zweiten Weltkriegs. Eine Streitmacht, wie sie die Welt noch nicht gesehen hatte, landete am 6. Juni 1944 in der Normandie. Ein knappes Jahr später war Europa "
+categories: []
+past: true
+---
+
+Vor 75 Jahren begann die Schlussphase des Zweiten Weltkriegs. Eine Streitmacht, wie sie die Welt noch nicht gesehen hatte, landete am 6. Juni 1944 in der Normandie. Ein knappes Jahr später war Europa vom Joch der nationalsozialistischen Diktatur und Gewaltherrschaft befreit. Der sogenannte „D-Day“ im Sommer 1944 ist nicht nur Geschichte, er lebt in den Köpfen und Herzen der Demokratien weiter, die sich damals engagierten oder befreit wurden. Das Aufeinandertreffen der Soldaten, die Erfahrung fairer Behandlung durch den Sieger, war für Hunderttausende deutscher Soldaten 1944/45 die elementare Begegnung mit dem Westen. Auch dieses Erlebnis wirkt bis heute nach. Jochen Thies nutzt dieses Datum zu einer Standortbestimmung der Bundesrepublik. In seinem Buch „Normandie 1944“ fragt er: Wo steht Deutschland? Wo ist sein Platz in der Welt angesichts der dramatischen Veränderungen, die rund um uns herum stattfinden? „Normandie 1944“ ist daher in Wirklichkeit eine Beschreibung unserer Tage, ein Kompass für die deutsche Außenpolitik der Gegenwart, wie es im Untertitel des Buches heißt. Es geht in diesem Buch aber nicht nur um Weltpolitik, um Begegnungen mit Personen der Zeitgeschichte, sondern auch um Erlebnisse des Autors als Kind einer ostpreußischen Flüchtlingsfamilie in der deutschen Nachkriegsgesellschaft.

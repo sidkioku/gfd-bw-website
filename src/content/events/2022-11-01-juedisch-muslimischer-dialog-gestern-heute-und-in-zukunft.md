@@ -1,0 +1,12 @@
+---
+title: "Jüdisch-muslimischer Dialog - Gestern, heute und in Zukunft"
+date: 2022-11-01
+endDate: 2023-05-31
+location: ""
+description: "Gemeinsam im Bund der Deutschen Dialog Vereine organisieren wir jedes Jahr die Dialog Akademie. Dieses Jahr als Online-Vortragsreihe fanden die Seminare von November 2022 bis Mai 2023 mit dem Thema „J"
+categories: []
+past: true
+image: "/images/Bildschirmfoto-2024-03-06-um-15.01.09.png"
+---
+
+Gemeinsam im Bund der Deutschen Dialog Vereine organisieren wir jedes Jahr die Dialog Akademie. Dieses Jahr als Online-Vortragsreihe fanden die Seminare von November 2022 bis Mai 2023 mit dem Thema „Jüdisch-muslimischer Dialog - Gestern, heute und in Zukunft“. Jüdisch-muslimischer Dialog. Gestern, heute und in Zukunft. Inspiriert von unseren mehrfach erfolgten Jerusalem-Reisen besteht das große Interesse an einer jüdisch-muslimischen Dialog Akademie. Mit der Online-Vortragsreihe „Jüdisch-muslimischer Dialog. Gestern, heute und in der Zukunft” möchten der Bund Deutscher Dialog Institutionen (BDDI) und seine Mitgliedsvereine theologische, mystische und historische Einblicke auf die jüdisch-muslimischen Beziehungen ermöglichen. Die Vortragsreihe intendiert zum einen eine erfolgreiche Verständigung in jüdisch-muslimischen Diskursen. Zum anderen werden exemplarische Bezüge aus der aktuellen jüdisch-muslimischen Dialogarbeit auf Bundes-und Landesebene dargestellt, um den Herausforderungen und Chancen der gegenwärtigen Praxis bewusst zu werden und Anregungen für zukünftige Projekte zu sammeln. In den ersten Veranstaltungen wird es um die jüdisch-theologische Perspektive auf den Islam gehen. Hierbei wird in die Heilige Schrift eingegangen und geschichtliche Aspekte vor Augen geführt. Anschließend werden mystische und historische Einblicke in jüdisch-muslimischen Lebensweisen gegeben, welche die facettenreichen Berührungspunkte konstruieren. Zum Abschluss der Online-Vortragsreihe werden persönliche Erfahrungen von Multiplikator:innen über jüdisch-muslimische Beziehungen dargelegt und mögliche Konzepte für weitere Kooperationen vorgeschlagen. Sie sind herzlich zur Teilnahme an den Veranstaltungen eingeladen! Mit einer formlosen Anmeldung unter akademie@bddi.org können Sie sich fü rdie Online-Vortragsreihen registrieren. Allen Teilnehmer:innen wird auf Anfrage eine Teilnahmebescheinigung ausgestellt. Alle Veranstaltungen werden digital über Zoom stattfinden. Kooperation von Bund Deutscher Dialog Institutionen und Gesellschaft für Dialog Baden-Württemberg

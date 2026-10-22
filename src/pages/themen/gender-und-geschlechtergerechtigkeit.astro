@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+---
+
+<BaseLayout title="Gender & Geschlechtergerechtigkeit" description="Gender und Geschlechtergerechtigkeit – Gesellschaft für Dialog Baden-Württemberg e.V.">
+  <PageHeader
+    title="Gender & Geschlechtergerechtigkeit"
+    subtitle="Stärkung von Frauenstimmen, interreligiöser Austausch und gleichberechtigte gesellschaftliche Teilhabe."
+    backLink={{ href: '/themen', label: 'Zurück zur Themenübersicht' }}
+  />
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-8 py-16 space-y-8 text-body-text text-sm sm:text-base leading-relaxed">
+    <div class="rounded-xl overflow-hidden shadow-sm h-64 sm:h-80 md:h-96 w-full">
+      <img
+        src="/images/Frauenmahl1-scaled.jpg"
+        alt="Interreligiöses Frauenmahl"
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+    </div>
+
+    <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-xs space-y-4">
+      <h2 class="text-2xl font-bold font-heading text-brand-navy">Frauenstimmen im Dialog</h2>
+      <p>
+        Frauen tragen maßgeblich zur Gestaltung von Gesellschaft, Familie und Kultur bei – dennoch stehen Frauen mit Migrationsbiografie oder religiöser Zugehörigkeit oft vor besonderen Hürden und Klischees.
+      </p>
+      <p>
+        Unsere Arbeitsgruppe für Frauen und Gendergerechtigkeit schafft eigene Formate wie das <strong>Interreligiöse Frauenmahl</strong>, die Reihe <em>„Weiblich. Migrantisch. Kreativ.“</em> sowie den literarischen Buchclub <em>„Vielfalt Lesen“</em>, um Austausch, Vernetzung und gegenseitige Bestärkung zu fördern.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

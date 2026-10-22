@@ -1,0 +1,48 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  backLink?: {
+    href: string;
+    label: string;
+  };
+}
+
+const { title, subtitle, backLink } = Astro.props;
+---
+
+<section class="bg-[#FAF8F5] border-b border-[#E8E2D8] py-12 sm:py-16 px-4 sm:px-8">
+  <div class="max-w-5xl mx-auto">
+    {backLink ? (
+      <nav class="mb-4 text-xs tracking-wide text-brand-steel flex items-center gap-1.5 font-medium" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-brand-navy transition">Startseite</a>
+        <span class="text-gray-300">/</span>
+        <a href={backLink.href} class="hover:text-brand-navy transition">{backLink.label.replace(/^←\s*/, '')}</a>
+      </nav>
+    ) : (
+      <nav class="mb-4 text-xs tracking-wide text-brand-steel flex items-center gap-1.5 font-medium" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-brand-navy transition">Startseite</a>
+        <span class="text-gray-300">/</span>
+        <span class="text-gray-500 truncate max-w-[200px] sm:max-w-none">{title}</span>
+      </nav>
+    )}
+
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div class="max-w-3xl space-y-3">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-brand-navy tracking-tight leading-tight">
+          {title}
+        </h1>
+
+        {subtitle && (
+          <p class="text-base sm:text-lg md:text-xl text-[#4A5568] font-normal leading-relaxed">
+            {subtitle}
+          </p>
+        )}
+      </div>
+
+      <div class="flex-shrink-0">
+        <slot name="action" />
+      </div>
+    </div>
+  </div>
+</section>

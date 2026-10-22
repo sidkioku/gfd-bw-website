@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+---
+
+<BaseLayout title="Jugendarbeit & Bildung" description="Jugendarbeit und Bildungsprojekte – Gesellschaft für Dialog Baden-Württemberg e.V.">
+  <PageHeader
+    title="Jugendarbeit & Bildung"
+    subtitle="Junge Menschen befähigen, demokratische Werte leben und die Zukunft unserer Gesellschaft aktiv mitgestalten."
+    backLink={{ href: '/themen', label: 'Zurück zur Themenübersicht' }}
+  />
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-8 py-16 space-y-8 text-body-text text-sm sm:text-base leading-relaxed">
+    <div class="rounded-xl overflow-hidden shadow-sm h-64 sm:h-80 md:h-96 w-full">
+      <img
+        src="/images/IMG_5995-scaled.jpg"
+        alt="Jugendarbeit und Wertebildung"
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+    </div>
+
+    <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-xs space-y-4">
+      <h2 class="text-2xl font-bold font-heading text-brand-navy">Für die nächste Generation</h2>
+      <p>
+        Jugendliche wachsen in einer hochkomplexen Welt voller Widersprüche, digitaler Herausforderungen und Identitätsfragen auf. In unseren Jugendformaten bieten wir einen Raum, in dem junge Menschen ihre Gedanken frei formulieren und konstruktive Dialogfähigkeiten erwerben können.
+      </p>
+      <p>
+        Mit Projekten wie <strong>INK & FLOW</strong> (kreative Schreibwerkstatt für junge Stimmen) und den <strong>Werte-Botschafter-Schulungen</strong> vermitteln wir Medienkompetenz, demokratische Reflexion und Selbstvertrauen.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+
+const topics = [
+  {
+    title: 'Interreligiöser & Interkultureller Dialog',
+    slug: 'interreligioeser-dialog',
+    image: '/images/025A02521-scaled.jpg',
+    desc: 'Begegnung von Menschen verschiedener Glaubensrichtungen und Herkunft auf Augenhöhe, Trialogreisen, Fastenbrechen und theologische Lernkreise.',
+  },
+  {
+    title: 'Gesellschaft & Politik',
+    slug: 'gesellschaft-und-politik',
+    image: '/images/Raum-fuer-Demokratie3.png',
+    desc: 'Demokratieförderung, Bürgerbeteiligung, Stärkung der Zivilgesellschaft und Auseinandersetzung mit gesellschaftlichen Polarisierungen.',
+  },
+  {
+    title: 'Gender & Geschlechtergerechtigkeit',
+    slug: 'gender-und-geschlechtergerechtigkeit',
+    image: '/images/Frauenmahl1-scaled.jpg',
+    desc: 'Frauenförderung im interkulturellen Kontext, interreligiöses Frauenmahl, literarische Clubs und Formate für weibliche Selbstwirksamkeit.',
+  },
+  {
+    title: 'Jugendarbeit & Bildung',
+    slug: 'jugend',
+    image: '/images/IMG_5995-scaled.jpg',
+    desc: 'Zukunft gestalten: Werte-Botschafter-Schulungen, Schreibwerkstätten wie INK & FLOW und Formate für junge Menschen.',
+  },
+  {
+    title: 'Kunst & Kultur',
+    slug: 'kunst-kultur',
+    image: '/images/14490340600_cd3eeb1bbe_o-scaled.jpg',
+    desc: 'Kultur als Brücke: Konzerte wie Symphony of the Earth, Lesungen, spirituelle Abende (z.B. Şeb-i Arûs) und Kunstausstellungen.',
+  },
+];
+---
+
+<BaseLayout title="Themen" description="Themenschwerpunkte der Gesellschaft für Dialog Baden-Württemberg e.V.">
+  <PageHeader
+    title="Unsere Themenbereiche"
+    subtitle="Erfahren Sie, auf welchen gesellschaftlichen Feldern wir uns für den Zusammenhalt, Vielfalt und Demokratie einsetzen."
+  />
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {topics.map((t) => (
+        <a
+          href={`/themen/${t.slug}`}
+          class="bg-white rounded-xl border border-gray-100 shadow-xs hover:border-brand-blue hover:shadow-md transition flex flex-col justify-between group overflow-hidden"
+        >
+          {t.image && (
+            <div class="h-48 w-full overflow-hidden bg-slate-100">
+              <img
+                src={t.image}
+                alt={t.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+              />
+            </div>
+          )}
+          <div class="p-8 flex flex-col flex-grow justify-between">
+            <div>
+              <h2 class="font-heading font-bold text-xl text-brand-navy group-hover:text-brand-blue transition mb-3">
+                {t.title}
+              </h2>
+              <p class="text-xs sm:text-sm text-body-text leading-relaxed">
+                {t.desc}
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-gray-50 flex items-center text-xs font-semibold text-brand-blue group-hover:translate-x-1 transition-transform">
+              Mehr über dieses Thema erfahren →
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

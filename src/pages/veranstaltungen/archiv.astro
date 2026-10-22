@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EventCard from '../../components/EventCard.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import { getCollection } from 'astro:content';
+
+const allEvents = await getCollection('events');
+const sorted = allEvents.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<BaseLayout title="Veranstaltungsarchiv" description="Archiv aller vergangenen Veranstaltungen der Gesellschaft für Dialog Baden-Württemberg e.V.">
+  <PageHeader
+    title="Veranstaltungsarchiv"
+    subtitle={`Chronologische Dokumentation aller ${allEvents.length} bisherigen Veranstaltungen, Dialogforen und Begegnungsabende seit 2018.`}
+    backLink={{ href: '/veranstaltungen', label: 'Zu den aktuellen Terminen' }}
+  />
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {sorted.map((evt) => (
+        <EventCard
+          title={evt.data.title}
+          date={evt.data.date}
+          slug={evt.slug}
+          location={evt.data.location}
+          format={evt.data.format}
+          description={evt.data.description}
+          categories={evt.data.categories}
+          past={true}
+          image={evt.data.image}
+        />
+      ))}
+    </div>
+  </div>
+</BaseLayout>

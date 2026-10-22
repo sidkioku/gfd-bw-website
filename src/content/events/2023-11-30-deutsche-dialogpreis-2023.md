@@ -1,0 +1,11 @@
+---
+title: "Deutsche Dialogpreis 2023"
+date: 2023-11-30
+location: ""
+description: "Dieses Jahr wurde der Deutsche Dialogpreis im Steinbergerhotel am Kanzleramt in Berlin am 30. November, mit den bundesweiten Dialoginstitutionen als Organisatoren mitunter Gesellschaft für Dialog Bade"
+categories: []
+past: true
+image: "/images/Deutscher_Dialogpreis_2023_02.jpg"
+---
+
+Dieses Jahr wurde der Deutsche Dialogpreis im Steinbergerhotel am Kanzleramt in Berlin am 30. November, mit den bundesweiten Dialoginstitutionen als Organisatoren mitunter Gesellschaft für Dialog Baden-Württemberg, feierlich verliehen. Der Deutsche Dialogpreis wurde vom Bund Deutscher Dialoginstitutionen ins Leben gerufen, um Persönlichkeiten und Institutionen zu würdigen, die in besonderem Maße der Vielfalt unserer Gesellschaft gerecht werden und eine außerordentliche Dialog-Leistung vollbringen. In einer Zukunft, in der wir aus den vergangenen Jahren gelernt haben, den Dialog zu schätzen und seine Bedeutung zu verinnerlichen, erkennen wir seine wachsende Relevanz mehr denn je. Der Dialog ist eine Quelle der Hoffnung, die es uns ermöglicht, trotz aller Turbulenzen erneut zusammenzukommen und den Wert des Dialogs zu würdigen. Im Einklang mit dem Motto "Dialog – Gemeinsames entdecken, Unterschiede respektieren" wurden in diesem Jahr Persönlichkeiten und Institutionen ausgezeichnet, die in außergewöhnlichem Maße zur Vielfalt unserer Gesellschaft beitragen und auch in schwierigen Zeiten eine herausragende Leistung im Dialog erbringen. Denn solche Leistungen verdienen Anerkennung und Wertschätzung. Durch den Abend führte uns Meinhard Schmidt-Degenhard. In der Kategorie Lebenswerk im Bereich Sport & Kultur wurden Steffi Jones, in der Kategorie Lebenswerk im Bereich Religion wurde Dr. Margot Käßmann, in der Kategorie interreligiöser/ interkultureller Dialog wurde Rabbiner Dr. Gabor Lengyel, in der Kategorie Menschenrechte HAWAR.help e.V. mit Düzen Tekkal in der Kategorie Gesellschaft wurde die Initiative Aktion für Flüchlingshilfe geehrt. Ein Abend, der eine klare Botschaft hatte: Unsere vielfältige Gesellschaft braucht mutige Menschen, die sich unermüdlich für das friedvolle Miteineinander, für Rechte benachteiligter Minderheiten, für mehr Verständnis und Respekt in unserer Gesellschaft und demokratische Werte einsetzen.
