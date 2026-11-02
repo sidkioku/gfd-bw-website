@@ -1,7 +1,7 @@
 ---
 title: Stuttgarter Gespräche - Islamismus und Rechtsextremismus
 date: 2026-10-21
-endDate: ''
+endDate: 2026-10-21T14:00:00.000Z
 format: praesenz
 location: Landeszentrale für politische Bildung BW
 address: ''
